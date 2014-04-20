@@ -129,18 +129,18 @@ class LogViewerController extends Controller
             'cli' => 'CLI'
         );
 
-        foreach ($sapis as $sapi => $human) {
-            $logs[$sapi]['sapi'] = $human;
+        foreach ($sapis as $real => $human) {
+            $logs[$real]['sapi'] = $human;
 
-            $logs[$sapi]['logs'] = glob($dir.'/log-'.$sapi.'*', GLOB_BRACE);
+            $logs[$real]['logs'] = glob($dir.'/log-'.$real.'*', GLOB_BRACE);
 
-            if (is_array($logs[$sapi]['logs'])) {
-                $logs[$sapi]['logs'] = array_reverse($logs[$sapi]['logs']);
-                foreach ($logs[$sapi]['logs'] as &$file) {
+            if (is_array($logs[$real]['logs'])) {
+                $logs[$real]['logs'] = array_reverse($logs[$sapi]['logs']);
+                foreach ($logs[$real]['logs'] as &$file) {
                     $file = preg_replace('/.*(\d{4}-\d{2}-\d{2}).*/', '$1', basename($file));
                 }
             } else {
-                $logs[$sapi]['logs'] = array();
+                $logs[$real]['logs'] = array();
             }
         }
 
@@ -159,7 +159,6 @@ class LogViewerController extends Controller
         $data = array(
             'logs'       => $logs,
             'date'       => $date,
-            'sapi'       => $sapis[$sapi],
             'sapi_plain' => $sapi,
             'url'        => 'logviewer',
             'data_url'   => URL::route('logviewer.index').'/data/'.$sapi.'/'.$date.'/'.$level.'?page='.$page,
