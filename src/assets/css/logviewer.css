@@ -1,0 +1,101 @@
+.log {
+    padding:10px;
+}
+
+.log-emergency {
+    background-color: #ebcccc;
+    border-color: #e6c1c7;
+    color: #a74240;
+}
+
+.log-emergency h4 {
+    color: #a74240;
+    line-height:1.5;
+}
+
+.log-alert {
+    background-color: #ebcccc;
+    border-color: #e6c1c7;
+    color: #a74240;
+}
+
+.log-alert h4 {
+    color: #a74240;
+    line-height:1.5;
+}
+
+.log-critical {
+    background-color: #ebcccc;
+    border-color: #e6c1c7;
+    color: #a74240;
+}
+
+.log-critical h4 {
+    color: #a74240;
+    line-height:1.5;
+}
+
+.log-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
+
+.log-error h4 {
+    color: #b94a48;
+    line-height:1.5;
+}
+
+.log-warning {
+    background-color: #faf2cc;
+    border-color: #f8e5be;
+    color: #b78c43;
+}
+
+.log-warning h4 {
+    color: #b78c43;
+    line-height:1.5;
+}
+
+.log-notice {
+    background-color: #fcf8e3;
+    border-color: #fbeed5;
+    color: #c09853;
+}
+
+.log-notice h4 {
+    color: #c09853;
+    line-height:1.5;
+}
+
+.log-info {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #3a87ad;
+}
+
+.log-info h4 {
+    color: #3a87ad;
+    line-height:1.5;
+}
+
+.log-debug {
+    background-color: #eef7fb;
+    border-color: #d1eff5;
+    color: #4196bf;
+}
+
+.log-debug h4 {
+    color: #4196bf;
+    line-height:1.5;
+}
+
+.pagination {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+#messages {
+    padding: 0px;
+    margin-bottom: 15px;
+}
