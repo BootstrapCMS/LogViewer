@@ -70,6 +70,14 @@ class LogViewerController extends Controller
             $sapi = 'apache';
         }
 
+        if (preg_match('/fpm.*/', $sapi)) {
+            $sapi = 'fpm';
+        }
+
+        if (preg_match('/cgi.*/', $sapi)) {
+            $sapi = 'cgi';
+        }
+
         if (preg_match('/cli.*/', $sapi)) {
             $sapi = 'cli';
         }
@@ -115,9 +123,10 @@ class LogViewerController extends Controller
 
         $sapis = array(
             'apache' => 'Apache',
-            'cgi-fcgi' => 'Fast CGI',
-            'fpm-fcgi' => 'Nginx',
-            'cli' => 'CLI'
+            'fpm' => 'Nginx',
+            'cgi' => 'CGI'
+            'srv' => 'HHVM'
+            'cli' => 'CLI',
         );
 
         foreach ($sapis as $sapi => $human) {
