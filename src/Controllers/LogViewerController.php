@@ -124,9 +124,9 @@ class LogViewerController extends Controller
         $sapis = array(
             'apache' => 'Apache',
             'fpm' => 'Nginx',
-            'cgi' => 'CGI'
-            'srv' => 'HHVM'
-            'cli' => 'CLI',
+            'cgi' => 'CGI',
+            'srv' => 'HHVM',
+            'cli' => 'CLI'
         );
 
         foreach ($sapis as $sapi => $human) {
