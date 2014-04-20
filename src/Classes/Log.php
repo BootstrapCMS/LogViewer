@@ -203,7 +203,7 @@ class Log
     {
         if (isset($this->levels)) {
             $class = new ReflectionClass(new LogLevel);
-            $this->levels = $class->getConstants()
+            $this->levels = $class->getConstants();
         }
 
         return $this->levels;
