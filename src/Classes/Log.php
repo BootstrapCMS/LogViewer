@@ -21,7 +21,7 @@ use Psr\Log\LogLevel;
 use ReflectionClass;
 
 /**
- * This is the log viewer class.
+ * This is the log class.
  *
  * @package    Laravel-LogViewer
  * @author     Graham Campbell
@@ -29,16 +29,66 @@ use ReflectionClass;
  * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
  */
-class LogViewer
+class Log
 {
-    public $path;
-    public $sapi;
-    public $date;
-    public $level;
-    public $empty;
+    /**
+     * The log storage path.
+     *
+     * @var string
+     */
+    protected $path;
 
     /**
-     * Create a new LogViewer.
+     * The log sapi.
+     *
+     * @var string
+     */
+    protected $sapi;
+
+    /**
+     * The log date.
+     *
+     * @var string
+     */
+    protected $date;
+
+    /**
+     * The log level.
+     *
+     * @var string
+     */
+    protected $level;
+
+    /**
+     * The log levels.
+     *
+     * @var bool
+     */
+    protected $levels;
+
+    /**
+     * The log processed flag.
+     *
+     * @var bool
+     */
+    protected $processed;
+
+    /**
+     * The log state.
+     *
+     * @var bool
+     */
+    protected $empty;
+
+    /**
+     * The parsed log.
+     *
+     * @var array
+     */
+    protected $log;
+
+    /**
+     * Create a new instance.
      *
      * @param  string  $sapi
      * @param  string  $date
@@ -53,21 +103,11 @@ class LogViewer
     }
 
     /**
-     * Check if the log is empty.
-     *
-     * @return bool
-     */
-    public function isEmpty()
-    {
-        return $this->empty;
-    }
-
-    /**
      * Open and parse the log.
      *
      * @return array
      */
-    public function log()
+    protected function parse()
     {
         $this->empty = true;
         $log = array();
@@ -112,6 +152,35 @@ class LogViewer
     }
 
     /**
+     * Check if the log is empty.
+     *
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        if (!$this->processed) {
+            $this->get();
+        }
+
+        return $this->empty;
+    }
+
+    /**
+     * Get the parsed log.
+     *
+     * @return array
+     */
+    public function get()
+    {
+        if (isset($this->log)) {
+            $this->log = $this->parse();
+            $this->processed = true;
+        }
+
+        return $this->log;
+    }
+
+    /**
      * Delete the log.
      *
      * @return bool
@@ -126,13 +195,17 @@ class LogViewer
     }
 
     /**
-     * Get the log levels from psr/log.
+     * Get the log levels.
      *
      * @return array
      */
     public function getLevels()
     {
-        $class = new ReflectionClass(new LogLevel);
-        return $class->getConstants();
+        if (isset($this->levels)) {
+            $class = new ReflectionClass(new LogLevel);
+            $this->levels = $class->getConstants()
+        }
+
+        return $this->levels;
     }
 }
