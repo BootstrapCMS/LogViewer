@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\LogViewer\Classes;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Psr\Log\LogLevel;
 use ReflectionClass;
