@@ -96,6 +96,7 @@ class Log
      */
     public function __construct($sapi, $date, $level = 'all')
     {
+        $this->processed = false;
         $this->path = storage_path('logs');
         $this->sapi = $sapi;
         $this->date = $date;
@@ -201,7 +202,7 @@ class Log
      */
     public function getLevels()
     {
-        if (isset($this->levels)) {
+        if (!isset($this->levels)) {
             $class = new ReflectionClass(new LogLevel);
             $this->levels = $class->getConstants();
         }
