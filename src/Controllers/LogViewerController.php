@@ -50,7 +50,7 @@ class LogViewerController extends Controller
 
         $filters = Config::get('graham-campbell/logviewer::filters');
 
-        if (is_array($filters) && !$filters) {
+        if (is_array($filters) && !empty($filters)) {
             foreach ($filters as $filter) {
                 $this->beforeFilter($filter, array('only' => array('getIndex', 'getDelete', 'getShow', 'getData')));
             }
