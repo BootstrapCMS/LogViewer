@@ -172,7 +172,7 @@ class Log
      */
     public function get()
     {
-        if (isset($this->log)) {
+        if (!$this->processed) {
             $this->log = $this->parse();
             $this->processed = true;
         }
