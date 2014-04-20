@@ -15,7 +15,7 @@ Laravel LogViewer
 Laravel LogViewer provides a LogViewer admin module for [Laravel 4.1](http://laravel.com).
 
 * Laravel LogViewer was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
-* Laravel CloudFlare relies on a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Viewer](https://github.com/GrahamCampbell/Laravel-Viewer).
+* Laravel LogViewer relies on a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Viewer](https://github.com/GrahamCampbell/Laravel-Viewer).
 * Laravel LogViewer uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-LogViewer) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-LogViewer) to check everything is working.
 * Laravel LogViewer uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-LogViewer) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/2649702d-f080-429b-b17c-dacba1c4c15a) to run additional checks.
 * Laravel LogViewer uses [Composer](https://getcomposer.org) to load and manage dependencies.
