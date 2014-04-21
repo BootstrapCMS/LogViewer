@@ -34,7 +34,7 @@ Laravel LogViewer provides a LogViewer admin module for [Laravel 4.1](http://lar
 
 Please check the system requirements before installing Laravel LogViewer.
 
-To get the latest version of Laravel LogViewer, simply require `"graham-campbell/logviewer": "0.1.*@dev"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of Laravel LogViewer, simply require `"graham-campbell/logviewer": "0.1.*@alpha"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 You will need to register a few service providers before you attempt to load the Laravel LogViewer service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
