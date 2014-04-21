@@ -71,6 +71,8 @@ This option (`'per_page'`) defines defines how many log entries are displayed pe
 There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Laravel-LogViewer
 ) for Laravel LogViewer.
 
+You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
+
 
 ## Updating Your Fork
 
