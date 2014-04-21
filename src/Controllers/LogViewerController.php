@@ -129,6 +129,8 @@ class LogViewerController extends Controller
             'cli' => 'CLI'
         );
 
+        $empty = true;
+
         foreach ($sapis as $real => $human) {
             $logs[$real]['sapi'] = $human;
 
@@ -137,6 +139,7 @@ class LogViewerController extends Controller
             if (is_array($logs[$real]['logs'])) {
                 $logs[$real]['logs'] = array_reverse($logs[$real]['logs']);
                 foreach ($logs[$real]['logs'] as &$file) {
+                    $empty = false;
                     $file = preg_replace('/.*(\d{4}-\d{2}-\d{2}).*/', '$1', basename($file));
                 }
             } else {
@@ -155,6 +158,7 @@ class LogViewerController extends Controller
 
         $data = array(
             'logs'       => $logs,
+            'empty'      => $empty,
             'date'       => $date,
             'sapi_plain' => $sapi,
             'url'        => 'logviewer',

@@ -27,31 +27,34 @@ LogViewer
     </div>
     <br>
     <div class="row">
+    @if($empty)
+        <div class="col-lg-12">
+            <div class="alert alert-danger"><p class="lead">There are no logs!</p></div>
+        </div>
+    @else
         <div class="col-lg-3">
-        @if($logs)
-        <div class="panel-group" id="accordion">
-            @foreach ($logs as $type => $files)
-                @if(!empty($files['logs']))
-                    <div class="panel panel-primary">
-                        <div id="collapse-{{ lcfirst($files['sapi']) }}" class="panel-collapse panel-primary collapse">
-                            <div class="panel-heading">
-                                <h5>{{ $files['sapi'] }}</h5>
-                            </div>
-                            <div class="panel-body">
-                                <ul class="nav nav-list">
-                                    @foreach ($files['logs'] as $file)
-                                         <li class="list-group-item">
-                                            <a href="{{ Request::root() }}/{{ $url.'/'.$type.'/'.$file }} ">{{ $file }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
+            <div class="panel-group" id="accordion">
+                @foreach ($logs as $type => $files)
+                    @if(!empty($files['logs']))
+                        <div class="panel panel-primary">
+                            <div id="collapse-{{ lcfirst($files['sapi']) }}" class="panel-collapse panel-primary collapse">
+                                <div class="panel-heading">
+                                    <h5>{{ $files['sapi'] }}</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="nav nav-list">
+                                        @foreach ($files['logs'] as $file)
+                                             <li class="list-group-item">
+                                                <a href="{{ Request::root() }}/{{ $url.'/'.$type.'/'.$file }} ">{{ $file }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endif
-            @endforeach
-        </div>
-        @endif
+                    @endif
+                @endforeach
+            </div>
         </div>
         <div class="col-lg-9">
             <div class="row">
@@ -60,6 +63,7 @@ LogViewer
                 </div>
             </div>
         </div>
+    @endif
     </div>
 </div>
 <div id="delete_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
