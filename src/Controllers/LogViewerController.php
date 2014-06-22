@@ -25,8 +25,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
-use GrahamCampbell\Viewer\Facades\Viewer;
-use GrahamCampbell\LogViewer\Classes\Log;
+use GrahamCampbell\LogViewer\Log;
 
 /**
  * This is the log viewer controller class.
@@ -167,7 +166,7 @@ class LogViewerController extends Controller
             'current'    => $level
         );
 
-        return Viewer::make('graham-campbell/logviewer::show', $data, 'admin');
+        return View::make('graham-campbell/logviewer::show', $data);
     }
 
     /**

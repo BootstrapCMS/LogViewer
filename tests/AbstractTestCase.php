@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Tests\LogViewer;
 
-use GrahamCampbell\TestBench\Classes\AbstractLaravelTestCase;
+use GrahamCampbell\TestBench\AbstractLaravelTestCase;
 
 /**
  * This is the abstract test case class.
@@ -48,8 +48,7 @@ abstract class AbstractTestCase extends AbstractLaravelTestCase
     {
         return array(
             'Lightgear\Asset\AssetServiceProvider',
-            'GrahamCampbell\Core\CoreServiceProvider',
-            'GrahamCampbell\Viewer\ViewerServiceProvider'
+            'GrahamCampbell\Core\CoreServiceProvider'
         );
     }
 

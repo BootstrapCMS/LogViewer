@@ -12,7 +12,7 @@ Laravel LogViewer
 
 ## What Is Laravel LogViewer?
 
-Laravel LogViewer provides a LogViewer admin module for [Laravel 4.1](http://laravel.com).
+Laravel LogViewer provides a LogViewer admin module for [Laravel 4.1+](http://laravel.com).
 
 * Laravel LogViewer was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
 * Laravel LogViewer relies on a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Viewer](https://github.com/GrahamCampbell/Laravel-Viewer).
@@ -25,8 +25,8 @@ Laravel LogViewer provides a LogViewer admin module for [Laravel 4.1](http://lar
 
 ## System Requirements
 
-* PHP 5.4.7+ or HHVM 3.0+ is required.
-* You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.
+* PHP 5.4.7+ or HHVM 3.1+ is required.
+* You will need [Laravel 4.1+](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel LogViewer.
 
 
@@ -34,13 +34,12 @@ Laravel LogViewer provides a LogViewer admin module for [Laravel 4.1](http://lar
 
 Please check the system requirements before installing Laravel LogViewer.
 
-To get the latest version of Laravel LogViewer, simply require `"graham-campbell/logviewer": "0.1.*@alpha"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of Laravel LogViewer, simply require `"graham-campbell/logviewer": "~0.2"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 You will need to register a few service providers before you attempt to load the Laravel LogViewer service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
 * `'Lightgear\Asset\AssetServiceProvider'`
 * `'GrahamCampbell\Core\CoreServiceProvider'`
-* `'GrahamCampbell\Viewer\ViewerServiceProvider'`
 
 Once Laravel LogViewer is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 

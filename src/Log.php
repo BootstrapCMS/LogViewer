@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\LogViewer\Classes;
+namespace GrahamCampbell\LogViewer;
 
 use Illuminate\Support\Facades\File;
 use Psr\Log\LogLevel;
