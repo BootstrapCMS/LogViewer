@@ -18,15 +18,13 @@ namespace GrahamCampbell\LogViewer\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Paginator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
-use GrahamCampbell\Viewer\Facades\Viewer;
-use GrahamCampbell\LogViewer\Classes\Log;
+use GrahamCampbell\LogViewer\Log;
 
 /**
  * This is the log viewer controller class.
@@ -40,20 +38,27 @@ use GrahamCampbell\LogViewer\Classes\Log;
 class LogViewerController extends Controller
 {
     /**
+     * The number of entries per page.
+     *
+     * @var int
+     */
+    protected $perPage;
+
+    /**
      * Create a new instance.
      *
+     * @param  int    $perPage
+     * @param  array  $filters
      * @return void
      */
-    public function __construct()
+    public function __construct($perPage, array $filters)
     {
+        $this->perPage = $perPage;
+
         $this->beforeFilter('ajax', array('only' => array('getData')));
 
-        $filters = Config::get('graham-campbell/logviewer::filters');
-
-        if (is_array($filters) && !empty($filters)) {
-            foreach ($filters as $filter) {
-                $this->beforeFilter($filter, array('only' => array('getIndex', 'getDelete', 'getShow', 'getData')));
-            }
+        foreach ($filters as $filter) {
+            $this->beforeFilter($filter, array('only' => array('getIndex', 'getDelete', 'getShow', 'getData')));
         }
     }
 
@@ -167,7 +172,7 @@ class LogViewerController extends Controller
             'current'    => $level
         );
 
-        return Viewer::make('graham-campbell/logviewer::show', $data, 'admin');
+        return View::make('graham-campbell/logviewer::show', $data);
     }
 
     /**
@@ -183,7 +188,7 @@ class LogViewerController extends Controller
 
         $log = new Log($sapi, $date, $level);
         $data = $log->get();
-        $page = Paginator::make($data, count($data), Config::get('graham-campbell/logviewer::per_page', 20));
+        $page = Paginator::make($data, count($data), $this->perPage);
         $page->setBaseUrl(URL::route('logviewer.index').'/'.$sapi.'/'.$date.'/'.$level);
 
         $data = array(
