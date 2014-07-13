@@ -40,18 +40,22 @@ To get started, first publish the package config file:
 
 There are two config options:
 
-**Filters**
+##### Filters
 
 This option (`'filters'`) defines the filters to be put in front of the endpoints provided by this package. A common use will be for your own authentication filters. The default value for this setting is `array()`.
 
-**Per Page**
+##### Per Page
 
 This option (`'per_page'`) defines defines how many log entries are displayed per page. The default value for this setting is `20`.
 
 
 ## Usage
 
-There is currently no usage documentation besides the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel LogViewer.
+Laravel LogViewer is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you have [app/config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/platform.php) and [app/config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
+
+Laravel LogViewer will register four routes. The only one of interest to you is `'logviewer'` (`logviewer.index`) as it will be the main entry point for the use of this package. You can checkout the other three routes in the [source](https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/src/routes.php) if you must.
+
+The internals of Laravel LogViewer are not documented here, but feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel LogViewer.
 
 You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
 
