@@ -55,7 +55,7 @@ Laravel LogViewer is designed to work with [Bootstrap CMS](https://github.com/Gr
 
 Laravel LogViewer will register four routes. The only one of interest to you is `'logviewer'` (`logviewer.index`) as it will be the main entry point for the use of this package. You can checkout the other three routes in the [source](https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/src/routes.php) if you must.
 
-The internals of Laravel LogViewer are not documented here, but feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel LogViewer.
+The internals of Laravel LogViewer are not documented here, but feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk).
 
 You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
 
