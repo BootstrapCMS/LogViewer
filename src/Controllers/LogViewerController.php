@@ -157,7 +157,7 @@ class LogViewerController extends Controller
         }
 
         $page = Input::get('page');
-        if (is_null($page) || empty($page)) {
+        if (empty($page)) {
             $page = '1';
         }
 
