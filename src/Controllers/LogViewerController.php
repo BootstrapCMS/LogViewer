@@ -17,6 +17,7 @@
 namespace GrahamCampbell\LogViewer\Controllers;
 
 use Carbon\Carbon;
+use GrahamCampbell\LogViewer\Log;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Paginator;
@@ -24,7 +25,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
-use GrahamCampbell\LogViewer\Log;
 
 /**
  * This is the log viewer controller class.
