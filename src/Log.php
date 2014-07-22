@@ -115,7 +115,7 @@ class Log
 
         $pattern = "/\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\].*/";
 
-        $log_levels = $this->getLevels();
+        $levels = $this->getLevels();
 
         $log_file = glob($this->path.'/log-'.$this->sapi.'*-'.$this->date.'.txt');
 
@@ -132,8 +132,8 @@ class Log
             }
 
             foreach ($headings as $h) {
-                for ($i=0, $j = count($h); $i < $j; $i++) {
-                    foreach ($log_levels as $ll) {
+                for ($i = 0, $j = count($h); $i < $j; $i++) {
+                    foreach ($levels as $ll) {
                         if ($this->level == $ll || $this->level == 'all') {
                             if (strpos(strtolower($h[$i]), strtolower('.'.$ll))) {
                                 $log[] = array('level' => $ll, 'header' => $h[$i], 'stack' => $log_data[$i]);

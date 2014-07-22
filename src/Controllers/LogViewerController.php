@@ -152,7 +152,7 @@ class LogViewerController extends Controller
             }
         }
 
-        if (is_null($level) || !is_string($level)) {
+        if (!is_string($level)) {
             $level = 'all';
         }
 
@@ -182,7 +182,7 @@ class LogViewerController extends Controller
      */
     public function getData($sapi, $date, $level = null)
     {
-        if (is_null($level) || !is_string($level)) {
+        if (!is_string($level)) {
             $level = 'all';
         }
 
@@ -193,7 +193,7 @@ class LogViewerController extends Controller
 
         $data = array(
             'paginator' => $page,
-            'log'       => (count($data) > $page->getPerPage() ? array_slice($data, $page->getFrom()-1, $page->getPerPage()) : $data),
+            'log'       => (count($data) > $page->getPerPage() ? array_slice($data, $page->getFrom() - 1, $page->getPerPage()) : $data),
             'empty'     => $log->isEmpty()
         );
 
