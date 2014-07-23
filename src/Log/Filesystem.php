@@ -80,7 +80,7 @@ class Filesystem
      *
      * @param  string  $sapi
      * @param  string  $date
-     * @return array
+     * @return string
      *
      * @throws \GrahamCampbell\LogViewer\Log\FilesystemException
      */

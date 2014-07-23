@@ -89,7 +89,6 @@ class LogViewerServiceProvider extends ServiceProvider
         $this->app->bindShared('logviewer.filesystem', function ($app) {
             $files = $app['files'];
             $path = $app['path.storage'].'/logs';
-            $sapis = array_keys($app['logviewer.data']->sapis());
 
             return new Log\Filesystem($files, $path);
         });
