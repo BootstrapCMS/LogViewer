@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\LogViewer;
+namespace GrahamCampbell\LogViewer\Facades;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use Illuminate\Support\Facades\Facade;
 
 /**
- * This is the service provider test class.
+ * This is the logviewer facade class.
  *
  * @package    Laravel-LogViewer
  * @author     Graham Campbell
@@ -27,27 +27,15 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
  */
-class ServiceProviderTest extends AbstractTestCase
+class LogViewer extends Facade
 {
-    use ServiceProviderTestCaseTrait;
-
-    public function testLogDataIsInjectable()
+    /**
+     * Get the registered name of the component.
+     *
+     * @return string
+     */
+    protected static function getFacadeAccessor()
     {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Data');
-    }
-
-    public function testLogFilesystemIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Filesystem');
-    }
-
-    public function testLogFactoryIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Factory');
-    }
-
-    public function testLogViewerIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\LogViewer');
+        return 'logviewer';
     }
 }

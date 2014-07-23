@@ -6,7 +6,7 @@ CHANGE LOG
 
 * Upgraded to laravel 4.1+
 * Patched xss vulnerability
-* Refactoring
+* Complete rewrite
 
 
 ## V0.1 Alpha (21/04/2014)

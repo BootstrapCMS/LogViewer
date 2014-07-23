@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\LogViewer;
+namespace GrahamCampbell\LogViewer\Log;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use Psr\Log\LogLevel;
+use ReflectionClass;
 
 /**
- * This is the service provider test class.
+ * This is the data class.
  *
  * @package    Laravel-LogViewer
  * @author     Graham Campbell
@@ -27,27 +28,43 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
  */
-class ServiceProviderTest extends AbstractTestCase
+class Data
 {
-    use ServiceProviderTestCaseTrait;
+    /**
+     * The cached log levels.
+     *
+     * @var array
+     */
+    protected $levels;
 
-    public function testLogDataIsInjectable()
+    /**
+     * Get the log levels.
+     *
+     * @return array
+     */
+    public function levels()
     {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Data');
+        if (!$this->levels) {
+            $class = new ReflectionClass(new LogLevel);
+            $this->levels = $class->getConstants();
+        }
+
+        return $this->levels;
     }
 
-    public function testLogFilesystemIsInjectable()
+    /**
+     * Get the different sapis.
+     *
+     * @return array
+     */
+    public function sapis()
     {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Filesystem');
-    }
-
-    public function testLogFactoryIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Factory');
-    }
-
-    public function testLogViewerIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\LogViewer');
+        return array(
+            'apache' => 'Apache',
+            'fpm'    => 'Nginx',
+            'cgi'    => 'CGI',
+            'srv'    => 'HHVM',
+            'cli'    => 'CLI'
+        );
     }
 }

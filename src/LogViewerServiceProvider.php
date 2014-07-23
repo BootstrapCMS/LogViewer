@@ -56,7 +56,80 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerLogData();
+        $this->registerLogFilesystem();
+        $this->registerLogFactory();
+
+        $this->registerLogViewer();
+
         $this->registerLogViewerController();
+    }
+
+    /**
+     * Register the log data class.
+     *
+     * @return void
+     */
+    protected function registerLogData()
+    {
+        $this->app->bindShared('logviewer.data', function ($app) {
+            return new Log\Data();
+        });
+
+        $this->app->alias('logviewer.data', 'GrahamCampbell\LogViewer\Log\Data');
+    }
+
+    /**
+     * Register the log filesystem class.
+     *
+     * @return void
+     */
+    protected function registerLogFilesystem()
+    {
+        $this->app->bindShared('logviewer.filesystem', function ($app) {
+            $files = $app['files'];
+            $path = $app['path.storage'].'/logs';
+            $sapis = array_keys($app['logviewer.data']->sapis());
+
+            return new Log\Filesystem($files, $path);
+        });
+
+        $this->app->alias('logviewer.filesystem', 'GrahamCampbell\LogViewer\Log\Filesystem');
+    }
+
+    /**
+     * Register the log factory class.
+     *
+     * @return void
+     */
+    protected function registerLogFactory()
+    {
+        $this->app->bindShared('logviewer.factory', function ($app) {
+            $filesystem = $app['logviewer.filesystem'];
+            $levels = $app['logviewer.data']->levels();
+
+            return new Log\Factory($filesystem, $levels);
+        });
+
+        $this->app->alias('logviewer.factory', 'GrahamCampbell\LogViewer\Log\Factory');
+    }
+
+    /**
+     * Register the log data class.
+     *
+     * @return void
+     */
+    protected function registerLogViewer()
+    {
+        $this->app->bindShared('logviewer', function ($app) {
+            $factory = $app['logviewer.factory'];
+            $filesystem = $app['logviewer.filesystem'];
+            $data = $app['logviewer.data'];
+
+            return new LogViewer($factory, $filesystem, $data);
+        });
+
+        $this->app->alias('logviewer', 'GrahamCampbell\LogViewer\LogViewer');
     }
 
     /**
@@ -82,7 +155,10 @@ class LogViewerServiceProvider extends ServiceProvider
     public function provides()
     {
         return array(
-            //
+            'logviewer',
+            'logviewer.data',
+            'logviewer.factory',
+            'logviewer.filesystem'
         );
     }
 }

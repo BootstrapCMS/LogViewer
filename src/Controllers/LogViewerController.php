@@ -17,7 +17,7 @@
 namespace GrahamCampbell\LogViewer\Controllers;
 
 use Carbon\Carbon;
-use GrahamCampbell\LogViewer\Log;
+use GrahamCampbell\LogViewer\Facades\LogViewer;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Paginator;
@@ -103,13 +103,12 @@ class LogViewerController extends Controller
      */
     public function getDelete($sapi, $date)
     {
-        $log = new Log($sapi, $date);
-
-        if ($log->delete()) {
+        try {
+            LogViewer::delete($sapi, $date);
             $today = Carbon::today()->format('Y-m-d');
             return Redirect::to('logviewer/'.$sapi.'/'.$today.'/all')
                 ->with('success', 'Log deleted successfully!');
-        } else {
+        } catch (\Exception $e) {
             return Redirect::to('logviewer/'.$sapi.'/'.$date.'/all')
                 ->with('error', 'There was an error while deleting the log.');
         }
@@ -122,35 +121,7 @@ class LogViewerController extends Controller
      */
     public function getShow($sapi, $date, $level = null)
     {
-        $dir = storage_path('logs');
-
-        $logs = array();
-
-        $sapis = array(
-            'apache' => 'Apache',
-            'fpm' => 'Nginx',
-            'cgi' => 'CGI',
-            'srv' => 'HHVM',
-            'cli' => 'CLI'
-        );
-
-        $empty = true;
-
-        foreach ($sapis as $real => $human) {
-            $logs[$real]['sapi'] = $human;
-
-            $logs[$real]['logs'] = glob($dir.'/log-'.$real.'*', GLOB_BRACE);
-
-            if (is_array($logs[$real]['logs'])) {
-                $logs[$real]['logs'] = array_reverse($logs[$real]['logs']);
-                foreach ($logs[$real]['logs'] as &$file) {
-                    $empty = false;
-                    $file = preg_replace('/.*(\d{4}-\d{2}-\d{2}).*/', '$1', basename($file));
-                }
-            } else {
-                $logs[$real]['logs'] = array();
-            }
-        }
+        $logs = LogViewer::logs();
 
         if (!is_string($level)) {
             $level = 'all';
@@ -163,12 +134,12 @@ class LogViewerController extends Controller
 
         $data = array(
             'logs'       => $logs,
-            'empty'      => $empty,
+            'empty'      => empty($logs),
             'date'       => $date,
             'sapi_plain' => $sapi,
             'url'        => 'logviewer',
             'data_url'   => URL::route('logviewer.index').'/data/'.$sapi.'/'.$date.'/'.$level.'?page='.$page,
-            'levels'     => (new Log($sapi, $date, $level))->getLevels(),
+            'levels'     => LogViewer::levels(),
             'current'    => $level
         );
 
@@ -186,15 +157,14 @@ class LogViewerController extends Controller
             $level = 'all';
         }
 
-        $log = new Log($sapi, $date, $level);
-        $data = $log->get();
+        $data = LogViewer::data($sapi, $date, $level);
         $page = Paginator::make($data, count($data), $this->perPage);
         $page->setBaseUrl(URL::route('logviewer.index').'/'.$sapi.'/'.$date.'/'.$level);
 
         $data = array(
             'paginator' => $page,
             'log'       => (count($data) > $page->getPerPage() ? array_slice($data, $page->getFrom() - 1, $page->getPerPage()) : $data),
-            'empty'     => $log->isEmpty()
+            'empty'     => empty($data)
         );
 
         return View::make('graham-campbell/logviewer::data', $data);

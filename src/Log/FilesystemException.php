@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\LogViewer;
-
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+namespace GrahamCampbell\LogViewer\Log;
 
 /**
- * This is the service provider test class.
+ * This is the filesystem exception class.
  *
  * @package    Laravel-LogViewer
  * @author     Graham Campbell
@@ -27,27 +25,7 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
  */
-class ServiceProviderTest extends AbstractTestCase
+class FilesystemException extends \Exception
 {
-    use ServiceProviderTestCaseTrait;
-
-    public function testLogDataIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Data');
-    }
-
-    public function testLogFilesystemIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Filesystem');
-    }
-
-    public function testLogFactoryIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Factory');
-    }
-
-    public function testLogViewerIsInjectable()
-    {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\LogViewer');
-    }
+    //
 }
