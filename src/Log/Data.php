@@ -67,4 +67,22 @@ class Data
             'cli'    => 'CLI'
         );
     }
+
+    /**
+     * Get the current sapi.
+     *
+     * @return array
+     */
+    public function sapi()
+    {
+        $real = php_sapi_name();
+
+        foreach (array_keys($this->sapis()) as $sapi) {
+            if (preg_match('/'.$sapi.'.*/', $real)) {
+                return $sapi;
+            }
+        }
+
+        throw new \Exception('Your sever is unknown!');
+    }
 }

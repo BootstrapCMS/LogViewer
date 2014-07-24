@@ -68,7 +68,7 @@ class LogViewer
     }
 
     /**
-     * Shortcut to get the log data.
+     * Get the log data.
      *
      * @param  string  $sapi
      * @param  string  $date
@@ -81,7 +81,7 @@ class LogViewer
     }
 
     /**
-     * Shortcut to delete the log.
+     * Delete the log.
      *
      * @param  string  $sapi
      * @param  string  $date
@@ -137,6 +137,16 @@ class LogViewer
     public function sapis()
     {
         return $this->data->sapis();
+    }
+
+    /**
+     * Get the current sapi.
+     *
+     * @return array
+     */
+    public function sapi()
+    {
+        return $this->data->sapi();
     }
 
     /**

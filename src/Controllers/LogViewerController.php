@@ -69,23 +69,7 @@ class LogViewerController extends Controller
      */
     public function getIndex()
     {
-        $sapi = php_sapi_name();
-
-        if (preg_match('/apache.*/', $sapi)) {
-            $sapi = 'apache';
-        }
-
-        if (preg_match('/fpm.*/', $sapi)) {
-            $sapi = 'fpm';
-        }
-
-        if (preg_match('/cgi.*/', $sapi)) {
-            $sapi = 'cgi';
-        }
-
-        if (preg_match('/cli.*/', $sapi)) {
-            $sapi = 'cli';
-        }
+        $sapi = LogViewer::sapi();
 
         $today = Carbon::today()->format('Y-m-d');
 
