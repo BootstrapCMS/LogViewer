@@ -68,8 +68,10 @@ class Filesystem
      */
     protected function path($sapi, $date)
     {
-        if ($files = glob($this->path.'/log-'.$sapi.'*-'.$date.'.txt') && $file = array_get($files, 0)) {
-            return $file;
+        if ($files = glob($this->path.'/log-'.$sapi.'*-'.$date.'.txt')) {
+            if ($file = array_get($files, 0)) {
+                return $file;
+            }
         }
 
         throw new FilesystemException('No usable logs found be located.');
