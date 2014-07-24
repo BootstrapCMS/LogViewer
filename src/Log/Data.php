@@ -71,7 +71,9 @@ class Data
     /**
      * Get the current sapi.
      *
-     * @return array
+     * @return string
+     *
+     * @throws \Exception
      */
     public function sapi()
     {

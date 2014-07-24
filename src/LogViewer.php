@@ -142,7 +142,7 @@ class LogViewer
     /**
      * Get the current sapi.
      *
-     * @return array
+     * @return string
      */
     public function sapi()
     {
