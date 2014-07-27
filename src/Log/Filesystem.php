@@ -22,33 +22,32 @@ use Illuminate\Filesystem\Filesystem as Files;
 /**
  * This is the filesystem class.
  *
- * @package    Laravel-LogViewer
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md> Apache 2.0
  */
 class Filesystem
 {
     /**
      * The files instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @type \Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
     /**
      * The base storage path.
      *
-     * @var string
+     * @type string
      */
     protected $path;
 
     /**
      * Create a new instance.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
-     * @param  string  $path
+     * @param \Illuminate\Filesystem\Filesystem $files
+     * @param string                            $path
+     *
      * @return void
      */
     public function __construct(Files $files, $path)
@@ -60,11 +59,12 @@ class Filesystem
     /**
      * Get the log file path.
      *
-     * @param  string  $sapi
-     * @param  string  $date
-     * @return string
+     * @param string $sapi
+     * @param string $date
      *
      * @throws \GrahamCampbell\LogViewer\Log\FilesystemException
+     *
+     * @return string
      */
     protected function path($sapi, $date)
     {
@@ -80,11 +80,12 @@ class Filesystem
     /**
      * Read the log.
      *
-     * @param  string  $sapi
-     * @param  string  $date
-     * @return string
+     * @param string $sapi
+     * @param string $date
      *
      * @throws \GrahamCampbell\LogViewer\Log\FilesystemException
+     *
+     * @return string
      */
     public function read($sapi, $date)
     {
@@ -98,11 +99,12 @@ class Filesystem
     /**
      * Delete the log.
      *
-     * @param  string  $sapi
-     * @param  string  $date
-     * @return void
+     * @param string $sapi
+     * @param string $date
      *
      * @throws \GrahamCampbell\LogViewer\Log\FilesystemException
+     *
+     * @return void
      */
     public function delete($sapi, $date)
     {
@@ -114,8 +116,9 @@ class Filesystem
     /**
      * List the log files.
      *
-     * @param  string  $sapi
-     * @return array
+     * @param string $sapi
+     *
+     * @return string[]
      */
     public function files($sapi)
     {

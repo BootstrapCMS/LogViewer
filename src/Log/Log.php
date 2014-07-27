@@ -19,48 +19,46 @@ namespace GrahamCampbell\LogViewer\Log;
 /**
  * This is the log class.
  *
- * @package    Laravel-LogViewer
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md> Apache 2.0
  */
 class Log
 {
     /**
      * The raw log contents.
      *
-     * @var string
+     * @type string
      */
     protected $raw;
 
     /**
      * The available log levels.
      *
-     * @var array
+     * @type array
      */
     protected $levels;
 
     /**
      * The selected log level.
      *
-     * @var string
+     * @type string
      */
     protected $level;
 
     /**
      * The processed log data.
      *
-     * @var array
+     * @type array
      */
     protected $data;
 
     /**
      * Create a new instance.
      *
-     * @param  string  $raw
-     * @param  array   $levels
-     * @param  string  $level
+     * @param string $raw
+     * @param array  $levels
+     * @param string $level
      */
     public function __construct($raw, array $levels, $level = 'all')
     {

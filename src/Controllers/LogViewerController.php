@@ -29,26 +29,25 @@ use Illuminate\Support\Facades\View;
 /**
  * This is the log viewer controller class.
  *
- * @package    Laravel-LogViewer
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md> Apache 2.0
  */
 class LogViewerController extends Controller
 {
     /**
      * The number of entries per page.
      *
-     * @var int
+     * @type int
      */
     protected $perPage;
 
     /**
      * Create a new instance.
      *
-     * @param  int    $perPage
-     * @param  array  $filters
+     * @param int   $perPage
+     * @param array $filters
+     *
      * @return void
      */
     public function __construct($perPage, array $filters)

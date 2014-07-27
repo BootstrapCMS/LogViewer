@@ -22,11 +22,9 @@ use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 /**
  * This is the logviewer facade test class.
  *
- * @package    Laravel-LogViewer
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md> Apache 2.0
  */
 class LogViewerTest extends AbstractTestCase
 {

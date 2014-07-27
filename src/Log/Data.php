@@ -22,25 +22,23 @@ use ReflectionClass;
 /**
  * This is the data class.
  *
- * @package    Laravel-LogViewer
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md> Apache 2.0
  */
 class Data
 {
     /**
      * The cached log levels.
      *
-     * @var array
+     * @type string[]
      */
     protected $levels;
 
     /**
      * Get the log levels.
      *
-     * @return array
+     * @return string[]
      */
     public function levels()
     {
@@ -55,7 +53,7 @@ class Data
     /**
      * Get the different sapis.
      *
-     * @return array
+     * @return string[]
      */
     public function sapis()
     {
@@ -71,9 +69,9 @@ class Data
     /**
      * Get the current sapi.
      *
-     * @return string
-     *
      * @throws \Exception
+     *
+     * @return string
      */
     public function sapi()
     {

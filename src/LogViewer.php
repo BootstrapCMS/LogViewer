@@ -23,41 +23,40 @@ use GrahamCampbell\LogViewer\Log\Filesystem;
 /**
  * This is the log viewer class.
  *
- * @package    Laravel-LogViewer
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md> Apache 2.0
  */
 class LogViewer
 {
     /**
      * The factory instance.
      *
-     * @var \GrahamCampbell\LogViewer\Log\Factory
+     * @type \GrahamCampbell\LogViewer\Log\Factory
      */
     protected $factory;
 
     /**
      * The filesystem instance.
      *
-     * @var \GrahamCampbell\LogViewer\Log\Filesystem
+     * @type \GrahamCampbell\LogViewer\Log\Filesystem
      */
     protected $filesystem;
 
     /**
      * The data instance.
      *
-     * @var \GrahamCampbell\LogViewer\Log\Data
+     * @type \GrahamCampbell\LogViewer\Log\Data
      */
     protected $data;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\LogViewer\Log\Factory  $factory
-     * @param  \GrahamCampbell\LogViewer\Log\Filesystem  $filesystem
-     * @param  \GrahamCampbell\LogViewer\Log\Data  $data
+     * @param \GrahamCampbell\LogViewer\Log\Factory    $factory
+     * @param \GrahamCampbell\LogViewer\Log\Filesystem $filesystem
+     * @param \GrahamCampbell\LogViewer\Log\Data       $data
+     *
      * @return void
      */
     public function __construct(Factory $factory, Filesystem $filesystem, Data $data)
@@ -70,9 +69,10 @@ class LogViewer
     /**
      * Get the log data.
      *
-     * @param  string  $sapi
-     * @param  string  $date
-     * @param  string  $level
+     * @param string $sapi
+     * @param string $date
+     * @param string $level
+     *
      * @return array
      */
     public function data($sapi, $date, $level = 'all')
@@ -83,8 +83,9 @@ class LogViewer
     /**
      * Delete the log.
      *
-     * @param  string  $sapi
-     * @param  string  $date
+     * @param string $sapi
+     * @param string $date
+     *
      * @return void
      */
     public function delete($sapi, $date)
@@ -95,7 +96,7 @@ class LogViewer
     /**
      * List the log files.
      *
-     * @return array
+     * @return string[]
      */
     public function logs()
     {
@@ -122,7 +123,7 @@ class LogViewer
     /**
      * Get the log levels.
      *
-     * @return array
+     * @return string[]
      */
     public function levels()
     {
@@ -132,7 +133,7 @@ class LogViewer
     /**
      * Get the different sapis.
      *
-     * @return array
+     * @return string[]
      */
     public function sapis()
     {

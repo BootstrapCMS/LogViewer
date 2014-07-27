@@ -19,33 +19,31 @@ namespace GrahamCampbell\LogViewer\Log;
 /**
  * This is the factory class.
  *
- * @package    Laravel-LogViewer
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md> Apache 2.0
  */
 class Factory
 {
     /**
      * The filesystem instance.
      *
-     * @var \GrahamCampbell\LogViewer\Log\Filesystem
+     * @type \GrahamCampbell\LogViewer\Log\Filesystem
      */
     protected $filesystem;
 
     /**
      * The log levels.
      *
-     * @var array
+     * @type array
      */
     protected $levels;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\LogViewer\Log\Filesystem  $filesystem
-     * @param  array  $levels
+     * @param \GrahamCampbell\LogViewer\Log\Filesystem $filesystem
+     * @param array                                    $levels
      */
     public function __construct(Filesystem $filesystem, array $levels)
     {
@@ -56,9 +54,10 @@ class Factory
     /**
      * Get the log instance.
      *
-     * @param  string  $sapi
-     * @param  string  $date
-     * @param  string  $level
+     * @param string $sapi
+     * @param string $date
+     * @param string $level
+     *
      * @return \GrahamCampbell\LogViewer\Log\Log
      */
     public function make($sapi, $date, $level = 'all')

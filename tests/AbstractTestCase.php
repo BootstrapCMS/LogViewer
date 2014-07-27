@@ -21,18 +21,16 @@ use GrahamCampbell\TestBench\AbstractLaravelTestCase;
 /**
  * This is the abstract test case class.
  *
- * @package    Laravel-LogViewer
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-LogViewer
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/LICENSE.md> Apache 2.0
  */
 abstract class AbstractTestCase extends AbstractLaravelTestCase
 {
     /**
      * Get the required service providers.
      *
-     * @return array
+     * @return string[]
      */
     protected function getRequiredServiceProviders()
     {
