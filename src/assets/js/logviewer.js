@@ -20,7 +20,7 @@ $(document).ready(function() {
         error: function(xhr, status, error) {
             var area = $('#data');
             area.fadeOut(200, function() {
-                area.html('<p class="lead">There was an error getting the data</p>');
+                area.html('<div id="log" class="well"><div class="alert alert-danger">There are no log entries within these constraints.</div></div>');
                 area.fadeIn(200);
             });
         }

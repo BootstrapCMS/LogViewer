@@ -1,6 +1,6 @@
 {{ $paginator->links() }}
 <div id="log" class="well">
-    @if($data && !empty($log))
+    @if($log)
         <?php $c = 1; ?>
         @foreach($log as $l)
             <div class="alert">
@@ -29,14 +29,8 @@
             </div>
             <?php $c++; ?>
         @endforeach
-    @elseif($data && empty($log))
-        <div class="alert alert-info">
-            That log appears to be empty.
-        </div>
     @else
-        <div class="alert alert-info">
-            That log doesn't exist.
-        </div>
+        <div class="alert alert-danger">There are no log entries within these constraints.</div>
     @endif
 </div>
 {{ $paginator->links() }}
