@@ -82,6 +82,9 @@ class LogViewerController extends Controller
     /**
      * Delete the log.
      *
+     * @param string $sapi
+     * @param string $date
+     *
      * @return \Illuminate\Http\Response
      */
     public function getDelete($sapi, $date)
@@ -99,6 +102,10 @@ class LogViewerController extends Controller
 
     /**
      * Show the log viewing page.
+     *
+     * @param string $sapi
+     * @param string $date
+     * @param string $level
      *
      * @return \Illuminate\Http\Response
      */
@@ -130,6 +137,10 @@ class LogViewerController extends Controller
 
     /**
      * Show the log contents.
+     *
+     * @param string $sapi
+     * @param string $date
+     * @param string $level
      *
      * @return \Illuminate\Http\Response
      */
