@@ -155,7 +155,7 @@ class LogViewerController extends Controller
         $page->setBaseUrl(URL::route('logviewer.index').'/'.$sapi.'/'.$date.'/'.$level);
 
         if (count($data) > $page->getPerPage()) {
-            $data = array_slice($data, $page->getFrom() - 1, $page->getPerPage())
+            $data = array_slice($data, $page->getFrom() - 1, $page->getPerPage());
         }
 
         return View::make('graham-campbell/logviewer::data', array('paginator' => $page, 'log'  => $data));
