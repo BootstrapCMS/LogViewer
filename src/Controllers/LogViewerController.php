@@ -45,8 +45,8 @@ class LogViewerController extends Controller
     /**
      * Create a new instance.
      *
-     * @param int   $perPage
-     * @param array $filters
+     * @param int      $perPage
+     * @param string[] $filters
      *
      * @return void
      */
