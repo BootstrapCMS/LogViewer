@@ -151,13 +151,15 @@ class LogViewerController extends Controller
         }
 
         $data = LogViewer::data($sapi, $date, $level);
-        $page = Paginator::make($data, count($data), $this->perPage);
+        $page = Paginator::make($data, $count = count($data), $this->perPage);
         $page->setBaseUrl(URL::route('logviewer.index').'/'.$sapi.'/'.$date.'/'.$level);
 
-        if (count($data) > $page->getPerPage()) {
-            $data = array_slice($data, $page->getFrom() - 1, $page->getPerPage());
+        if ($count > $page->getPerPage()) {
+            $log = array_slice($data, $page->getFrom() - 1, $page->getPerPage());
+        } else {
+            $log = $data;
         }
 
-        return View::make('graham-campbell/logviewer::data', array('paginator' => $page, 'log'  => $data));
+        return View::make('graham-campbell/logviewer::data', array('paginator' => $page, 'log'  => $log));
     }
 }
