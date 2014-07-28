@@ -35,7 +35,7 @@ class Log
     /**
      * The available log levels.
      *
-     * @type array
+     * @type string[]
      */
     protected $levels;
 
@@ -56,9 +56,9 @@ class Log
     /**
      * Create a new instance.
      *
-     * @param string $raw
-     * @param array  $levels
-     * @param string $level
+     * @param string   $raw
+     * @param string[] $levels
+     * @param string   $level
      */
     public function __construct($raw, array $levels, $level = 'all')
     {

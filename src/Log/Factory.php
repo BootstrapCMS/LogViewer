@@ -43,7 +43,7 @@ class Factory
      * Create a new instance.
      *
      * @param \GrahamCampbell\LogViewer\Log\Filesystem $filesystem
-     * @param array                                    $levels
+     * @param string[]                                 $levels
      */
     public function __construct(Filesystem $filesystem, array $levels)
     {
