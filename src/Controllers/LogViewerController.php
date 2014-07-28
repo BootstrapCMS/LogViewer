@@ -117,7 +117,6 @@ class LogViewerController extends Controller
 
         $data = array(
             'logs'       => $logs,
-            'empty'      => empty($logs),
             'date'       => $date,
             'sapi_plain' => $sapi,
             'url'        => 'logviewer',
@@ -146,8 +145,7 @@ class LogViewerController extends Controller
 
         $data = array(
             'paginator' => $page,
-            'log'       => (count($data) > $page->getPerPage() ? array_slice($data, $page->getFrom() - 1, $page->getPerPage()) : $data),
-            'empty'     => empty($data)
+            'log'       => (count($data) > $page->getPerPage() ? array_slice($data, $page->getFrom() - 1, $page->getPerPage()) : $data)
         );
 
         return View::make('graham-campbell/logviewer::data', $data);

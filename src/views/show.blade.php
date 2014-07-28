@@ -28,11 +28,7 @@ LogViewer
     </div>
     <br>
     <div class="row">
-    @if($empty)
-        <div class="col-lg-12">
-            <div class="alert alert-danger"><p class="lead">There are no logs!</p></div>
-        </div>
-    @else
+    @if($logs)
         <div class="col-lg-3">
             <div class="panel-group" id="accordion">
                 @foreach ($logs as $type => $files)
@@ -61,6 +57,10 @@ LogViewer
                     <p class="lead"><i class="fa fa-refresh fa-spin fa-lg"></i> Loading...</p>
                 </div>
             </div>
+        </div>
+    @else
+        <div class="col-lg-12">
+            <div class="alert alert-danger"><p class="lead">There are no logs!</p></div>
         </div>
     @endif
     </div>

@@ -1,6 +1,6 @@
 {{ $paginator->links() }}
 <div id="log" class="well">
-    @if(!$empty && !empty($log))
+    @if($data && !empty($log))
         <?php $c = 1; ?>
         @foreach($log as $l)
             <div class="alert">
@@ -29,7 +29,7 @@
             </div>
             <?php $c++; ?>
         @endforeach
-    @elseif(!$empty && empty($log))
+    @elseif($data && empty($log))
         <div class="alert alert-info">
             That log appears to be empty.
         </div>
