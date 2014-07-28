@@ -36,7 +36,9 @@ Laravel LogViewer supports optional configuration.
 
 To get started, first publish the package config file:
 
-    php artisan config:publish graham-campbell/logviewer
+```bash
+$ php artisan config:publish graham-campbell/logviewer
+```
 
 There are two config options:
 
