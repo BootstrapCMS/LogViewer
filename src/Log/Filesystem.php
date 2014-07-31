@@ -31,14 +31,14 @@ class Filesystem
     /**
      * The files instance.
      *
-     * @type \Illuminate\Filesystem\Filesystem
+     * @var \Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
     /**
      * The base storage path.
      *
-     * @type string
+     * @var string
      */
     protected $path;
 

@@ -31,7 +31,7 @@ class Data
     /**
      * The cached log levels.
      *
-     * @type string[]
+     * @var string[]
      */
     protected $levels;
 

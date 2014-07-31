@@ -32,21 +32,21 @@ class LogViewer
     /**
      * The factory instance.
      *
-     * @type \GrahamCampbell\LogViewer\Log\Factory
+     * @var \GrahamCampbell\LogViewer\Log\Factory
      */
     protected $factory;
 
     /**
      * The filesystem instance.
      *
-     * @type \GrahamCampbell\LogViewer\Log\Filesystem
+     * @var \GrahamCampbell\LogViewer\Log\Filesystem
      */
     protected $filesystem;
 
     /**
      * The data instance.
      *
-     * @type \GrahamCampbell\LogViewer\Log\Data
+     * @var \GrahamCampbell\LogViewer\Log\Data
      */
     protected $data;
 

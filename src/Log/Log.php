@@ -28,28 +28,28 @@ class Log
     /**
      * The raw log contents.
      *
-     * @type string
+     * @var string
      */
     protected $raw;
 
     /**
      * The available log levels.
      *
-     * @type string[]
+     * @var string[]
      */
     protected $levels;
 
     /**
      * The selected log level.
      *
-     * @type string
+     * @var string
      */
     protected $level;
 
     /**
      * The processed log data.
      *
-     * @type array
+     * @var array
      */
     protected $data;
 

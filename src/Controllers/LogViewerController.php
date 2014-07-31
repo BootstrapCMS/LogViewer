@@ -38,7 +38,7 @@ class LogViewerController extends Controller
     /**
      * The number of entries per page.
      *
-     * @type int
+     * @var int
      */
     protected $perPage;
 

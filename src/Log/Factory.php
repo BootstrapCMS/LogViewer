@@ -28,14 +28,14 @@ class Factory
     /**
      * The filesystem instance.
      *
-     * @type \GrahamCampbell\LogViewer\Log\Filesystem
+     * @var \GrahamCampbell\LogViewer\Log\Filesystem
      */
     protected $filesystem;
 
     /**
      * The log levels.
      *
-     * @type array
+     * @var array
      */
     protected $levels;
 
