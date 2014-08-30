@@ -2,11 +2,11 @@ Laravel LogViewer
 =================
 
 
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-LogViewer/master.svg?style=flat)](https://travis-ci.org/GrahamCampbell/Laravel-LogViewer)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-LogViewer.svg?style=flat)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-LogViewer/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-LogViewer.svg?style=flat)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-LogViewer)
-[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat)](LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-LogViewer.svg?style=flat)](https://github.com/GrahamCampbell/Laravel-LogViewer/releases)
+[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-LogViewer/master.svg?style=flat-square)](https://travis-ci.org/GrahamCampbell/Laravel-LogViewer)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-LogViewer.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-LogViewer/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-LogViewer.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-LogViewer)
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-LogViewer.svg?style=flat-square)](https://github.com/GrahamCampbell/Laravel-LogViewer/releases)
 
 
 ## Introduction
