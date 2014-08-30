@@ -43,7 +43,7 @@ class Data
     public function levels()
     {
         if (!$this->levels) {
-            $class = new ReflectionClass(new LogLevel);
+            $class = new ReflectionClass(new LogLevel());
             $this->levels = $class->getConstants();
         }
 
