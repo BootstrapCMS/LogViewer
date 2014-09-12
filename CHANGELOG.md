@@ -4,7 +4,7 @@ CHANGE LOG
 
 ## V0.2 Alpha (12/08/2014)
 
-* Upgraded to laravel 4.1+
+* Upgraded to laravel 4.1/4.2
 * Patched xss vulnerabilities
 * Partial rewrite (major refactoring)
 
