@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.2.1 Alpha (Upcoming)
+## V0.2.1 Alpha (24/10/2014)
 
 * Upgraded to core 1.x
 * Added cs fixers to the test suite
