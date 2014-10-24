@@ -2,6 +2,13 @@ CHANGE LOG
 ==========
 
 
+## V0.2.1 Alpha (Upcoming)
+
+* Upgraded to core 1.x
+* Added cs fixers to the test suite
+* Improved the docs
+
+
 ## V0.2 Alpha (12/08/2014)
 
 * Upgraded to laravel 4.1/4.2
