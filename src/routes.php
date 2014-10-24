@@ -16,20 +16,20 @@
 
 Route::get('logviewer', array(
     'as' => 'logviewer.index',
-    'uses' => 'GrahamCampbell\LogViewer\Controllers\LogViewerController@getIndex'
+    'uses' => 'GrahamCampbell\LogViewer\Controllers\LogViewerController@getIndex',
 ));
 
 Route::get('logviewer/{sapi}/{date}/delete', array(
     'as' => 'logviewer.delete',
-    'uses' => 'GrahamCampbell\LogViewer\Controllers\LogViewerController@getDelete'
+    'uses' => 'GrahamCampbell\LogViewer\Controllers\LogViewerController@getDelete',
 ));
 
 Route::get('logviewer/{sapi}/{date}/{level?}', array(
     'as' => 'logviewer.show',
-    'uses' => 'GrahamCampbell\LogViewer\Controllers\LogViewerController@getShow'
+    'uses' => 'GrahamCampbell\LogViewer\Controllers\LogViewerController@getShow',
 ));
 
 Route::get('logviewer/data/{sapi}/{date}/{level?}', array(
     'as' => 'logviewer.data',
-    'uses' => 'GrahamCampbell\LogViewer\Controllers\LogViewerController@getData'
+    'uses' => 'GrahamCampbell\LogViewer\Controllers\LogViewerController@getData',
 ));

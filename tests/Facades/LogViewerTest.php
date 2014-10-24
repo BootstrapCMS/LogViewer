@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Tests\LogViewer\Facades;
 
-use GrahamCampbell\Tests\LogViewer\AbstractTestCase;
 use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\Tests\LogViewer\AbstractTestCase;
 
 /**
  * This is the logviewer facade test class.

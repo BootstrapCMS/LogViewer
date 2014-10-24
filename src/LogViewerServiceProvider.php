@@ -155,7 +155,7 @@ class LogViewerServiceProvider extends ServiceProvider
             'logviewer',
             'logviewer.data',
             'logviewer.factory',
-            'logviewer.filesystem'
+            'logviewer.filesystem',
         );
     }
 }

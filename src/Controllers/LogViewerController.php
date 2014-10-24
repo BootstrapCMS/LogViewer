@@ -129,7 +129,7 @@ class LogViewerController extends Controller
             'url'        => 'logviewer',
             'data_url'   => URL::route('logviewer.index').'/data/'.$sapi.'/'.$date.'/'.$level.'?page='.$page,
             'levels'     => LogViewer::levels(),
-            'current'    => $level
+            'current'    => $level,
         );
 
         return View::make('graham-campbell/logviewer::show', $data);

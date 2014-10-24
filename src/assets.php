@@ -17,9 +17,9 @@
 use Lightgear\Asset\Facades\Asset;
 
 Asset::registerStyles(array(
-    'graham-campbell/logviewer/src/assets/css/logviewer.css'
+    'graham-campbell/logviewer/src/assets/css/logviewer.css',
 ), '', 'logviewer');
 
 Asset::registerScripts(array(
-    'graham-campbell/logviewer/src/assets/js/logviewer.js'
+    'graham-campbell/logviewer/src/assets/js/logviewer.js',
 ), '', 'logviewer');

@@ -62,7 +62,7 @@ class Data
             'fpm'    => 'Nginx',
             'cgi'    => 'CGI',
             'srv'    => 'HHVM',
-            'cli'    => 'CLI'
+            'cli'    => 'CLI',
         );
     }
 
