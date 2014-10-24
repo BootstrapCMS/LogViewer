@@ -103,9 +103,9 @@ class LogViewerController extends Controller
     /**
      * Show the log viewing page.
      *
-     * @param string $sapi
-     * @param string $date
-     * @param string $level
+     * @param string      $sapi
+     * @param string      $date
+     * @param string|null $level
      *
      * @return \Illuminate\Http\Response
      */
@@ -138,9 +138,9 @@ class LogViewerController extends Controller
     /**
      * Show the log contents.
      *
-     * @param string $sapi
-     * @param string $date
-     * @param string $level
+     * @param string      $sapi
+     * @param string      $date
+     * @param string|null $level
      *
      * @return \Illuminate\Http\Response
      */

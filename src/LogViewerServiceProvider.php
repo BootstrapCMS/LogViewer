@@ -70,7 +70,7 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     protected function registerLogData()
     {
-        $this->app->bindShared('logviewer.data', function ($app) {
+        $this->app->bindShared('logviewer.data', function () {
             return new Log\Data();
         });
 
