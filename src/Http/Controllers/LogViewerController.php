@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\LogViewer\Controllers;
+namespace GrahamCampbell\LogViewer\Http\Controllers;
 
 use Carbon\Carbon;
 use GrahamCampbell\LogViewer\Facades\LogViewer;
