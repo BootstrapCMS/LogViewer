@@ -1,6 +1,6 @@
 {
     "name": "graham-campbell/logviewer",
-    "description": "LogViewer Provides A LogViewer Admin Module For Laravel 4.1/4.2",
+    "description": "LogViewer Provides A LogViewer Admin Module For Laravel 5",
     "keywords": ["laravel", "framework", "log viewer", "LogViewer", "logviewer", "LogViewer", "Laravel LogViewer", "Laravel-LogViewer", "Graham Campbell", "GrahamCampbell"],
     "license": "Apache-2.0",
     "authors": [
@@ -17,17 +17,17 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "illuminate/filesystem": "~4.1",
-        "illuminate/pagination": "~4.1",
-        "illuminate/routing": "~4.1",
-        "illuminate/session": "~4.1",
-        "illuminate/support": "~4.1",
-        "illuminate/view": "~4.1",
-        "lightgear/asset": "1.4",
-        "graham-campbell/core": "~1.0"
+        "illuminate/filesystem": "~5.0",
+        "illuminate/pagination": "~5.0",
+        "illuminate/routing": "~5.0",
+        "illuminate/session": "~5.0",
+        "illuminate/support": "~5.0",
+        "illuminate/view": "~5.0",
+        "lightgear/asset": "1.5.*",
+        "graham-campbell/core": "~2.0"
     },
     "require-dev": {
-        "graham-campbell/testbench": "~1.0"
+        "graham-campbell/testbench": "~2.0"
     },
     "suggest": {
         "graham-campbell/navigation": "Easily add a navigation bar."
@@ -40,6 +40,11 @@
     "autoload-dev": {
         "psr-4": {
             "GrahamCampbell\\Tests\\LogViewer\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.3-dev"
         }
     },
     "minimum-stability": "dev",
