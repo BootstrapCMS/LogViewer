@@ -77,7 +77,7 @@ LogViewer
                 <p>Are you sure you wish to continue?</p>
             </div>
             <div class="modal-footer">
-                {{ HTML::link($url.'/'.$sapi_plain.'/'.$date.'/delete', 'Yes', array('class' => 'btn btn-success')) }}
+                {!! HTML::link($url.'/'.$sapi_plain.'/'.$date.'/delete', 'Yes', array('class' => 'btn btn-success')) !!}
                 <button class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>
@@ -86,12 +86,12 @@ LogViewer
 @stop
 
 @section('css')
-{{ Asset::styles('logviewer') }}
+{!! Asset::styles('logviewer') !!}
 @endsection
 
 @section('js')
 <script>
 var laravelLogViewerURL = '{{ $data_url }}';
 </script>
-{{ Asset::scripts('logviewer') }}
+{!! Asset::scripts('logviewer') !!}
 @endsection
