@@ -151,11 +151,11 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array(
+        return [
             'logviewer',
             'logviewer.data',
             'logviewer.factory',
             'logviewer.filesystem',
-        );
+        ];
     }
 }

@@ -100,7 +100,7 @@ class LogViewer
      */
     public function logs()
     {
-        $logs = array();
+        $logs = [];
 
         foreach ($this->data->sapis() as $real => $human) {
             $logs[$real]['sapi'] = $human;

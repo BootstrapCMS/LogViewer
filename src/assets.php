@@ -16,10 +16,10 @@
 
 use Lightgear\Asset\Facades\Asset;
 
-Asset::registerStyles(array(
+Asset::registerStyles([
     'graham-campbell/logviewer/src/assets/css/logviewer.css',
-), '', 'logviewer');
+], '', 'logviewer');
 
-Asset::registerScripts(array(
+Asset::registerScripts([
     'graham-campbell/logviewer/src/assets/js/logviewer.js',
-), '', 'logviewer');
+], '', 'logviewer');

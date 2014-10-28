@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-Route::get('logviewer', array(
+Route::get('logviewer', [
     'as' => 'logviewer.index',
     'uses' => 'GrahamCampbell\LogViewer\Http\Controllers\LogViewerController@getIndex',
-));
+]);
 
-Route::get('logviewer/{sapi}/{date}/delete', array(
+Route::get('logviewer/{sapi}/{date}/delete', [
     'as' => 'logviewer.delete',
     'uses' => 'GrahamCampbell\LogViewer\Http\Controllers\LogViewerController@getDelete',
-));
+]);
 
-Route::get('logviewer/{sapi}/{date}/{level?}', array(
+Route::get('logviewer/{sapi}/{date}/{level?}', [
     'as' => 'logviewer.show',
     'uses' => 'GrahamCampbell\LogViewer\Http\Controllers\LogViewerController@getShow',
-));
+]);
 
-Route::get('logviewer/data/{sapi}/{date}/{level?}', array(
+Route::get('logviewer/data/{sapi}/{date}/{level?}', [
     'as' => 'logviewer.data',
     'uses' => 'GrahamCampbell\LogViewer\Http\Controllers\LogViewerController@getData',
-));
+]);

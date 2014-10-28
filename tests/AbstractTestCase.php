@@ -34,10 +34,10 @@ abstract class AbstractTestCase extends AbstractLaravelTestCase
      */
     protected function getRequiredServiceProviders()
     {
-        return array(
+        return [
             'Lightgear\Asset\AssetServiceProvider',
             'GrahamCampbell\Core\CoreServiceProvider',
-        );
+        ];
     }
 
     /**
