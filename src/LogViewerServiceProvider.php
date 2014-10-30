@@ -70,7 +70,7 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     protected function registerLogData()
     {
-        $this->app->bindShared('logviewer.data', function () {
+        $this->app->singleton('logviewer.data', function () {
             return new Log\Data();
         });
 
@@ -84,7 +84,7 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     protected function registerLogFilesystem()
     {
-        $this->app->bindShared('logviewer.filesystem', function ($app) {
+        $this->app->singleton('logviewer.filesystem', function ($app) {
             $files = $app['files'];
             $path = $app['path.storage'].'/logs';
 
@@ -101,7 +101,7 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     protected function registerLogFactory()
     {
-        $this->app->bindShared('logviewer.factory', function ($app) {
+        $this->app->singleton('logviewer.factory', function ($app) {
             $filesystem = $app['logviewer.filesystem'];
             $levels = $app['logviewer.data']->levels();
 
@@ -118,7 +118,7 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     protected function registerLogViewer()
     {
-        $this->app->bindShared('logviewer', function ($app) {
+        $this->app->singleton('logviewer', function ($app) {
             $factory = $app['logviewer.factory'];
             $filesystem = $app['logviewer.filesystem'];
             $data = $app['logviewer.data'];
