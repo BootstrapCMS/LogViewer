@@ -92,6 +92,7 @@ class LogViewerController extends Controller
         try {
             LogViewer::delete($sapi, $date);
             $today = Carbon::today()->format('Y-m-d');
+
             return Redirect::to('logviewer/'.$sapi.'/'.$today.'/all')
                 ->with('success', 'Log deleted successfully!');
         } catch (\Exception $e) {
