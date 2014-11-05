@@ -19,17 +19,17 @@ Route::get('logviewer', [
     'uses' => 'GrahamCampbell\LogViewer\Http\Controllers\LogViewerController@getIndex',
 ]);
 
-Route::get('logviewer/{sapi}/{date}/delete', [
+Route::get('logviewer/{date}/delete', [
     'as' => 'logviewer.delete',
     'uses' => 'GrahamCampbell\LogViewer\Http\Controllers\LogViewerController@getDelete',
 ]);
 
-Route::get('logviewer/{sapi}/{date}/{level?}', [
+Route::get('logviewer/{date}/{level?}', [
     'as' => 'logviewer.show',
     'uses' => 'GrahamCampbell\LogViewer\Http\Controllers\LogViewerController@getShow',
 ]);
 
-Route::get('logviewer/data/{sapi}/{date}/{level?}', [
+Route::get('logviewer/data/{date}/{level?}', [
     'as' => 'logviewer.data',
     'uses' => 'GrahamCampbell\LogViewer\Http\Controllers\LogViewerController@getData',
 ]);

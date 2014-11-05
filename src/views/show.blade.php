@@ -16,9 +16,9 @@ LogViewer
     <div class="row">
         <div class="col-lg-12">
             <ul class="nav nav-pills">
-                <li class="{{ $current === null || $current === 'all' ? 'active' : ''}}"><a href="{{ Request::root() }}/{{ $url.'/'.$sapi_plain.'/'.$date.'/all' }}">All</a></li>
+                <li class="{{ $current === null || $current === 'all' ? 'active' : ''}}"><a href="{{ Request::root() }}/{{ $url.'/'.$date.'/all' }}">All</a></li>
                 @foreach ($levels as $level)
-                    <li class="{{ $current === $level ? 'active' : '' }}"><a href="{{ Request::root() }}/{{ $url.'/'.$sapi_plain.'/'.$date.'/'.$level }}">{{ ucfirst($level) }}</a></li>
+                    <li class="{{ $current === $level ? 'active' : '' }}"><a href="{{ Request::root() }}/{{ $url.'/'.$date.'/'.$level }}">{{ ucfirst($level) }}</a></li>
                 @endforeach
                 <li class="pull-right">
                     <button data-toggle="modal" data-target="#delete_modal" id="btn-delete" type="button" class="btn btn-danger">Delete current log</button>
@@ -31,24 +31,22 @@ LogViewer
     @if($logs)
         <div class="col-lg-3">
             <div class="panel-group" id="accordion">
-                @foreach ($logs as $type => $files)
-                    <div class="panel panel-primary">
-                        <div id="collapse-{{ lcfirst($files['sapi']) }}" class="panel-collapse panel-primary collapse">
-                            <div class="panel-heading">
-                                <h5>{{ $files['sapi'] }}</h5>
+                <div class="panel panel-primary">
+                    <div id="collapse-log-list" class="panel-collapse panel-primary collapse">
+                        <div class="panel-heading">
+                                <h5>Available Logs:</h5>
                             </div>
-                            <div class="panel-body">
-                                <ul class="nav nav-list">
-                                    @foreach ($files['logs'] as $file)
-                                         <li class="list-group-item">
-                                            <a href="{{ Request::root() }}/{{ $url.'/'.$type.'/'.$file }} ">{{ $file }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-list">
+                                @foreach ($logs as $file)
+                                     <li class="list-group-item">
+                                        <a href="{{ Request::root() }}/{{ $url.'/'.$file.'/all' }} ">{{ $file }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
         <div class="col-lg-9">
@@ -77,7 +75,7 @@ LogViewer
                 <p>Are you sure you wish to continue?</p>
             </div>
             <div class="modal-footer">
-                {!! HTML::link($url.'/'.$sapi_plain.'/'.$date.'/delete', 'Yes', array('class' => 'btn btn-success')) !!}
+                {!! HTML::link($url.'/'.$date.'/delete', 'Yes', array('class' => 'btn btn-success')) !!}
                 <button class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>

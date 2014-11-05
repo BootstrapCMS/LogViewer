@@ -1,4 +1,4 @@
-{!! $paginator->links() !!}
+{!! $paginator->render() !!}
 <div id="log" class="well">
     @if($log)
         <?php $c = 1; ?>
@@ -33,4 +33,4 @@
         <div class="alert alert-danger">There are no log entries within these constraints.</div>
     @endif
 </div>
-{!! $paginator->links() !!}
+{!! $paginator->render() !!}

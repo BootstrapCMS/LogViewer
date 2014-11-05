@@ -49,40 +49,4 @@ class Data
 
         return $this->levels;
     }
-
-    /**
-     * Get the different sapis.
-     *
-     * @return string[]
-     */
-    public function sapis()
-    {
-        return [
-            'apache' => 'Apache',
-            'fpm'    => 'Nginx',
-            'cgi'    => 'CGI',
-            'srv'    => 'HHVM',
-            'cli'    => 'CLI',
-        ];
-    }
-
-    /**
-     * Get the current sapi.
-     *
-     * @throws \Exception
-     *
-     * @return string
-     */
-    public function sapi()
-    {
-        $real = php_sapi_name();
-
-        foreach (array_keys($this->sapis()) as $sapi) {
-            if (preg_match('/'.$sapi.'.*/', $real)) {
-                return $sapi;
-            }
-        }
-
-        throw new \Exception('Your sever is unknown!');
-    }
 }

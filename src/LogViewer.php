@@ -69,28 +69,26 @@ class LogViewer
     /**
      * Get the log data.
      *
-     * @param string $sapi
      * @param string $date
      * @param string $level
      *
      * @return array
      */
-    public function data($sapi, $date, $level = 'all')
+    public function data($date, $level = 'all')
     {
-        return $this->factory->make($sapi, $date, $level)->data();
+        return $this->factory->make($date, $level)->data();
     }
 
     /**
      * Delete the log.
      *
-     * @param string $sapi
      * @param string $date
      *
      * @return void
      */
-    public function delete($sapi, $date)
+    public function delete($date)
     {
-        return $this->filesystem->delete($sapi, $date);
+        return $this->filesystem->delete($date);
     }
 
     /**
@@ -100,21 +98,10 @@ class LogViewer
      */
     public function logs()
     {
-        $logs = [];
+        $logs = array_reverse($this->filesystem->files());
 
-        foreach ($this->data->sapis() as $real => $human) {
-            $logs[$real]['sapi'] = $human;
-
-            $logs[$real]['logs'] = $this->filesystem->files($real);
-
-            if (is_array($logs[$real]['logs']) && !empty($logs[$real]['logs'])) {
-                $logs[$real]['logs'] = array_reverse($logs[$real]['logs']);
-                foreach ($logs[$real]['logs'] as &$file) {
-                    $file = preg_replace('/.*(\d{4}-\d{2}-\d{2}).*/', '$1', basename($file));
-                }
-            } else {
-                unset($logs[$real]);
-            }
+        foreach ($logs as $index => $file) {
+            $logs[$index] = preg_replace('/.*(\d{4}-\d{2}-\d{2}).*/', '$1', basename($file));
         }
 
         return $logs;
@@ -128,26 +115,6 @@ class LogViewer
     public function levels()
     {
         return $this->data->levels();
-    }
-
-    /**
-     * Get the different sapis.
-     *
-     * @return string[]
-     */
-    public function sapis()
-    {
-        return $this->data->sapis();
-    }
-
-    /**
-     * Get the current sapi.
-     *
-     * @return string
-     */
-    public function sapi()
-    {
-        return $this->data->sapi();
     }
 
     /**

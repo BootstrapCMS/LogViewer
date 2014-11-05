@@ -59,38 +59,36 @@ class Filesystem
     /**
      * Get the log file path.
      *
-     * @param string $sapi
      * @param string $date
      *
      * @throws \GrahamCampbell\LogViewer\Log\FilesystemException
      *
      * @return string
      */
-    protected function path($sapi, $date)
+    protected function path($date)
     {
-        if ($files = glob($this->path.'/log-'.$sapi.'*-'.$date.'.txt')) {
-            if ($file = array_get($files, 0)) {
-                return $file;
-            }
+        $path = $this->path.'/laravel-'.$date.'.log';
+
+        if ($this->files->exists($path)) {
+            return realpath($path);
         }
 
-        throw new FilesystemException('No usable logs found be located.');
+        throw new FilesystemException('The log(s) could not be located.');
     }
 
     /**
      * Read the log.
      *
-     * @param string $sapi
      * @param string $date
      *
      * @throws \GrahamCampbell\LogViewer\Log\FilesystemException
      *
      * @return string
      */
-    public function read($sapi, $date)
+    public function read($date)
     {
         try {
-            return $this->files->get($this->path($sapi, $date));
+            return $this->files->get($this->path($date));
         } catch (FileNotFoundException $e) {
             throw new FilesystemException('There was an reading the log.');
         }
@@ -99,16 +97,15 @@ class Filesystem
     /**
      * Delete the log.
      *
-     * @param string $sapi
      * @param string $date
      *
      * @throws \GrahamCampbell\LogViewer\Log\FilesystemException
      *
      * @return void
      */
-    public function delete($sapi, $date)
+    public function delete($date)
     {
-        if (!$this->files->delete($this->path($sapi, $date))) {
+        if (!$this->files->delete($this->path($date))) {
             throw new FilesystemException('There was an error deleting the log.');
         }
     }
@@ -116,13 +113,11 @@ class Filesystem
     /**
      * List the log files.
      *
-     * @param string $sapi
-     *
      * @return string[]
      */
-    public function files($sapi)
+    public function files()
     {
-        return glob($this->path.'/log-'.$sapi.'*', GLOB_BRACE);
+        return glob($this->path.'/laravel-*.log', GLOB_BRACE);
     }
 
     /**

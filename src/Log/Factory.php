@@ -54,15 +54,14 @@ class Factory
     /**
      * Get the log instance.
      *
-     * @param string $sapi
      * @param string $date
      * @param string $level
      *
      * @return \GrahamCampbell\LogViewer\Log\Log
      */
-    public function make($sapi, $date, $level = 'all')
+    public function make($date, $level = 'all')
     {
-        $raw = $this->filesystem->read($sapi, $date);
+        $raw = $this->filesystem->read($date);
         $levels = $this->levels;
 
         return new Log($raw, $levels, $level);

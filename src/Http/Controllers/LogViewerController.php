@@ -18,9 +18,9 @@ namespace GrahamCampbell\LogViewer\Http\Controllers;
 
 use Carbon\Carbon;
 use GrahamCampbell\LogViewer\Facades\LogViewer;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Paginator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
@@ -68,35 +68,32 @@ class LogViewerController extends Controller
      */
     public function getIndex()
     {
-        $sapi = LogViewer::sapi();
-
         $today = Carbon::today()->format('Y-m-d');
 
         if (Session::has('success') || Session::has('error')) {
             Session::reflash();
         }
 
-        return Redirect::to('logviewer/'.$sapi.'/'.$today.'/all');
+        return Redirect::to('logviewer/'.$today.'/all');
     }
 
     /**
      * Delete the log.
      *
-     * @param string $sapi
      * @param string $date
      *
      * @return \Illuminate\Http\Response
      */
-    public function getDelete($sapi, $date)
+    public function getDelete($date)
     {
         try {
-            LogViewer::delete($sapi, $date);
+            LogViewer::delete($date);
             $today = Carbon::today()->format('Y-m-d');
 
-            return Redirect::to('logviewer/'.$sapi.'/'.$today.'/all')
+            return Redirect::to('logviewer/'.$today.'/all')
                 ->with('success', 'Log deleted successfully!');
         } catch (\Exception $e) {
-            return Redirect::to('logviewer/'.$sapi.'/'.$date.'/all')
+            return Redirect::to('logviewer/'.$date.'/all')
                 ->with('error', 'There was an error while deleting the log.');
         }
     }
@@ -104,13 +101,12 @@ class LogViewerController extends Controller
     /**
      * Show the log viewing page.
      *
-     * @param string      $sapi
      * @param string      $date
      * @param string|null $level
      *
      * @return \Illuminate\Http\Response
      */
-    public function getShow($sapi, $date, $level = null)
+    public function getShow($date, $level = null)
     {
         $logs = LogViewer::logs();
 
@@ -126,9 +122,8 @@ class LogViewerController extends Controller
         $data = [
             'logs'       => $logs,
             'date'       => $date,
-            'sapi_plain' => $sapi,
             'url'        => 'logviewer',
-            'data_url'   => URL::route('logviewer.index').'/data/'.$sapi.'/'.$date.'/'.$level.'?page='.$page,
+            'data_url'   => URL::route('logviewer.index').'/data/'.$date.'/'.$level.'?page='.$page,
             'levels'     => LogViewer::levels(),
             'current'    => $level,
         ];
@@ -139,28 +134,30 @@ class LogViewerController extends Controller
     /**
      * Show the log contents.
      *
-     * @param string      $sapi
      * @param string      $date
      * @param string|null $level
      *
      * @return \Illuminate\Http\Response
      */
-    public function getData($sapi, $date, $level = null)
+    public function getData($date, $level = null)
     {
         if (!is_string($level)) {
             $level = 'all';
         }
 
-        $data = LogViewer::data($sapi, $date, $level);
-        $page = Paginator::make($data, $count = count($data), $this->perPage);
-        $page->setBaseUrl(URL::route('logviewer.index').'/'.$sapi.'/'.$date.'/'.$level);
+        $data = LogViewer::data($date, $level);
+        $paginator = new Paginator($data, $this->perPage);
 
-        if ($count > $page->getPerPage()) {
-            $log = array_slice($data, $page->getFrom() - 1, $page->getPerPage());
+        $path = (new \ReflectionClass($paginator))->getProperty('path');
+        $path->setAccessible(true);
+        $path->setValue($paginator, URL::route('logviewer.index').'/'.$date.'/'.$level);
+
+        if (count($data) > $paginator->perPage()) {
+            $log = array_slice($data, $paginator->firstItem() - 1, $paginator->perPage());
         } else {
             $log = $data;
         }
 
-        return View::make('graham-campbell/logviewer::data', ['paginator' => $page, 'log'  => $log]);
+        return View::make('graham-campbell/logviewer::data', compact('paginator', 'log'));
     }
 }
