@@ -138,9 +138,9 @@ class LogViewerServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\LogViewer\Http\Controllers\LogViewerController', function ($app) {
             $perPage = $app['config']['graham-campbell/logviewer::per_page'];
-            $filters = $app['config']['graham-campbell/logviewer::filters'];
+            $middleware = $app['config']['graham-campbell/logviewer::middleware'];
 
-            return new Http\Controllers\LogViewerController($perPage, $filters);
+            return new Http\Controllers\LogViewerController($perPage, $middleware);
         });
     }
 

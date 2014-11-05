@@ -17,6 +17,7 @@
 namespace GrahamCampbell\LogViewer\Http\Controllers;
 
 use Carbon\Carbon;
+use GrahamCampbell\Core\Http\Middleware\Ajax;
 use GrahamCampbell\LogViewer\Facades\LogViewer;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Routing\Controller;
@@ -46,18 +47,18 @@ class LogViewerController extends Controller
      * Create a new instance.
      *
      * @param int      $perPage
-     * @param string[] $filters
+     * @param string[] $middleware
      *
      * @return void
      */
-    public function __construct($perPage, array $filters)
+    public function __construct($perPage, array $middleware)
     {
         $this->perPage = $perPage;
 
-        $this->beforeFilter('ajax', ['only' => ['getData']]);
+        $this->middleware(Ajax::class, ['only' => ['getData']]);
 
-        foreach ($filters as $filter) {
-            $this->beforeFilter($filter, ['only' => ['getIndex', 'getDelete', 'getShow', 'getData']]);
+        foreach ($middleware as $class) {
+            $this->middleware($class);
         }
     }
 
