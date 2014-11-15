@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-use Lightgear\Asset\Facades\Asset;
+$router->get('logviewer', ['as' => 'logviewer.index', 'uses' => 'LogViewerController@getIndex']);
 
-Asset::registerStyles([
-    'graham-campbell/logviewer/src/assets/css/logviewer.css',
-], '', 'logviewer');
+$router->get('logviewer/{date}/delete', ['as' => 'logviewer.delete', 'uses' => 'LogViewerController@getDelete']);
 
-Asset::registerScripts([
-    'graham-campbell/logviewer/src/assets/js/logviewer.js',
-], '', 'logviewer');
+$router->get('logviewer/{date}/{level?}', ['as' => 'logviewer.show', 'uses' => 'LogViewerController@getShow']);
+
+$router->get('logviewer/data/{date}/{level?}', ['as' => 'logviewer.data', 'uses' => 'LogViewerController@getData']);

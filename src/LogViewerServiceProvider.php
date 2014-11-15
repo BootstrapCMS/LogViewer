@@ -16,7 +16,9 @@
 
 namespace GrahamCampbell\LogViewer;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Lightgear\Asset\Asset;
 
 /**
  * This is the log viewer service provider class.
@@ -43,8 +45,36 @@ class LogViewerServiceProvider extends ServiceProvider
     {
         $this->package('graham-campbell/logviewer', 'graham-campbell/logviewer', __DIR__);
 
-        include __DIR__.'/routes.php';
-        include __DIR__.'/assets.php';
+        $this->setupAssets($this->app['asset']);
+
+        $this->setupRoutes($this->app['router']);
+    }
+
+    /**
+     * Setup the assets.
+     *
+     * @param \Lightgear\Asset $asset
+     *
+     * @return void
+     */
+    protected function setupAssets(Asset $asset)
+    {
+        $asset->registerStyles(['graham-campbell/logviewer/src/assets/css/logviewer.css'], '', 'logviewer');
+        $asset->registerScripts(['graham-campbell/logviewer/src/assets/js/logviewer.js'], '', 'logviewer');
+    }
+
+    /**
+     * Setup the routes.
+     *
+     * @param \Illuminate\Routing\Router $router
+     *
+     * @return void
+     */
+    protected function setupRoutes(Router $router)
+    {
+        $router->group(['namespace' => 'GrahamCampbell\LogViewer\Http\Controllers'], function (Router $router) {
+            require __DIR__.'/Http/routes.php';
+        });
     }
 
     /**
