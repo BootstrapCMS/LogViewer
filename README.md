@@ -60,10 +60,14 @@ This option (`'middleware'`) defines the middleware to be put in front of the en
 
 This option (`'per_page'`) defines defines how many log entries are displayed per page. The default value for this setting is `20`.
 
+##### Additional Configuration
+
+You may want to check out the config for `graham-campbell/core` too.
+
 
 ## Usage
 
-Laravel LogViewer is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you have [config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/config/platform.php) and [config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
+Laravel LogViewer is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as configuration and knowledge of the `app:install` and `app:update ` commands is required.
 
 Laravel LogViewer will register four routes. The only one of interest to you is `'logviewer'` (`logviewer.index`) as it will be the main entry point for the use of this package. You can checkout the other three routes in the [source](https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/src/routes.php) if you must.
 
