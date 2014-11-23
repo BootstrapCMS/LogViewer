@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V0.2.2 Alpha (Upcoming)
+
+* Removed the cs fixers
+
+
 ## V0.2.1 Alpha (24/10/2014)
 
 * Upgraded to core 1.x
