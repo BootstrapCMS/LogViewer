@@ -23,7 +23,7 @@
         "illuminate/session": "~4.1",
         "illuminate/support": "~4.1",
         "illuminate/view": "~4.1",
-        "lightgear/asset": "1.4",
+        "lightgear/asset": "1.4.*",
         "graham-campbell/core": "~1.0"
     },
     "require-dev": {
