@@ -57,13 +57,13 @@ class Data
      */
     public function sapis()
     {
-        return array(
+        return [
             'apache' => 'Apache',
             'fpm'    => 'Nginx',
             'cgi'    => 'CGI',
             'srv'    => 'HHVM',
             'cli'    => 'CLI',
-        );
+        ];
     }
 
     /**

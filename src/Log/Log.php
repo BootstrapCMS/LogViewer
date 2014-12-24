@@ -74,7 +74,7 @@ class Log
      */
     protected function parse()
     {
-        $log = array();
+        $log = [];
 
         $pattern = "/\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\].*/";
 
@@ -91,7 +91,7 @@ class Log
                 foreach ($this->levels as $level) {
                     if ($this->level == $level || $this->level == 'all') {
                         if (strpos(strtolower($heading[$i]), strtolower('.'.$level))) {
-                            $log[] = array('level' => $level, 'header' => $heading[$i], 'stack' => $data[$i]);
+                            $log[] = ['level' => $level, 'header' => $heading[$i], 'stack' => $data[$i]];
                         }
                     }
                 }

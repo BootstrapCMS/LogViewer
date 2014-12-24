@@ -54,10 +54,10 @@ class LogViewerController extends Controller
     {
         $this->perPage = $perPage;
 
-        $this->beforeFilter('ajax', array('only' => array('getData')));
+        $this->beforeFilter('ajax', ['only' => ['getData']]);
 
         foreach ($filters as $filter) {
-            $this->beforeFilter($filter, array('only' => array('getIndex', 'getDelete', 'getShow', 'getData')));
+            $this->beforeFilter($filter, ['only' => ['getIndex', 'getDelete', 'getShow', 'getData']]);
         }
     }
 
@@ -92,6 +92,7 @@ class LogViewerController extends Controller
         try {
             LogViewer::delete($sapi, $date);
             $today = Carbon::today()->format('Y-m-d');
+
             return Redirect::to('logviewer/'.$sapi.'/'.$today.'/all')
                 ->with('success', 'Log deleted successfully!');
         } catch (\Exception $e) {
@@ -122,7 +123,7 @@ class LogViewerController extends Controller
             $page = '1';
         }
 
-        $data = array(
+        $data = [
             'logs'       => $logs,
             'date'       => $date,
             'sapi_plain' => $sapi,
@@ -130,7 +131,7 @@ class LogViewerController extends Controller
             'data_url'   => URL::route('logviewer.index').'/data/'.$sapi.'/'.$date.'/'.$level.'?page='.$page,
             'levels'     => LogViewer::levels(),
             'current'    => $level,
-        );
+        ];
 
         return View::make('graham-campbell/logviewer::show', $data);
     }
@@ -160,6 +161,6 @@ class LogViewerController extends Controller
             $log = $data;
         }
 
-        return View::make('graham-campbell/logviewer::data', array('paginator' => $page, 'log'  => $log));
+        return View::make('graham-campbell/logviewer::data', ['paginator' => $page, 'log'  => $log]);
     }
 }
