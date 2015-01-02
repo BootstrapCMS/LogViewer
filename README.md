@@ -1,16 +1,16 @@
 Laravel LogViewer
 =================
 
-Laravel LogViewer was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a LogViewer admin module for [Laravel 5](http://laravel.com). It relies on some of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-LogViewer/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Laravel LogViewer was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a LogViewer admin module for [Laravel 5](http://laravel.com). It relies on some of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/LogViewer/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Laravel LogViewer](https://cloud.githubusercontent.com/assets/2829600/4432324/c1921e52-468c-11e4-9fad-aec94401e69d.PNG)
 
 <p align="center">
-<a href="https://travis-ci.org/GrahamCampbell/Laravel-LogViewer"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-LogViewer/master.svg?style=flat-square" alt="Build Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-LogViewer/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-LogViewer.svg?style=flat-square" alt="Coverage Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-LogViewer"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-LogViewer.svg?style=flat-square" alt="Quality Score"></img></a>
-<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
-<a href="https://github.com/GrahamCampbell/Laravel-LogViewer/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-LogViewer.svg?style=flat-square" alt="Latest Version"></img></a>
+<a href="https://travis-ci.org/BootstrapCMS/LogViewer"><img src="https://img.shields.io/travis/BootstrapCMS/LogViewer/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/BootstrapCMS/LogViewer/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/BootstrapCMS/LogViewer.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/BootstrapCMS/LogViewer"><img src="https://img.shields.io/scrutinizer/g/BootstrapCMS/LogViewer.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/BootstrapCMS/LogViewer/releases"><img src="https://img.shields.io/github/release/BootstrapCMS/LogViewer.svg?style=flat-square" alt="Latest Version"></img></a>
 </p>
 
 
@@ -37,7 +37,7 @@ Once Laravel LogViewer is installed, you need to register the service provider. 
 
 #### Looking for a laravel 4 compatable version?
 
-Checkout the [0.2 branch](https://github.com/GrahamCampbell/Laravel-LogViewer/tree/0.2), installable by requiring `"graham-campbell/logviewer": "0.2.*"`.
+Checkout the [0.2 branch](https://github.com/BootstrapCMS/LogViewer/tree/0.2), installable by requiring `"graham-campbell/logviewer": "0.2.*"`.
 
 
 ## Configuration
@@ -67,29 +67,13 @@ You may want to check out the config for `graham-campbell/core` too.
 
 ## Usage
 
-Laravel LogViewer is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as configuration and knowledge of the `app:install` and `app:update ` commands is required.
+Laravel LogViewer is designed to work with [Bootstrap CMS](https://github.com/BootstrapCMS/CMS). In order for it to work in any Laravel application, you must ensure that you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as configuration and knowledge of the `app:install` and `app:update ` commands is required.
 
-Laravel LogViewer will register four routes. The only one of interest to you is `'logviewer'` (`logviewer.index`) as it will be the main entry point for the use of this package. You can checkout the other three routes in the [source](https://github.com/GrahamCampbell/Laravel-LogViewer/blob/master/src/routes.php) if you must.
+Laravel LogViewer will register four routes. The only one of interest to you is `'logviewer'` (`logviewer.index`) as it will be the main entry point for the use of this package. You can checkout the other three routes in the [source](https://github.com/BootstrapCMS/LogViewer/blob/master/src/routes.php) if you must.
 
 The internals of Laravel LogViewer are not documented here, but feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk).
-
-You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
 
 
 ## License
 
-Apache License
-
-Copyright 2014 Graham Campbell
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Laravel LogViewer is licensed under [The MIT License (MIT)](LICENSE).
