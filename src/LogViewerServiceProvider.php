@@ -23,37 +23,36 @@ use Lightgear\Asset\Asset;
 class LogViewerServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
-     * Bootstrap the application events.
+     * Boot the service provider.
      *
      * @return void
      */
     public function boot()
     {
-        $this->package('graham-campbell/logviewer', 'graham-campbell/logviewer', __DIR__);
+        $this->setupPackage($this->app->asset);
 
-        $this->setupAssets($this->app['asset']);
-
-        $this->setupRoutes($this->app['router']);
+        $this->setupRoutes($this->app->router);
     }
 
     /**
-     * Setup the assets.
+     * Setup the package.
      *
      * @param \Lightgear\Asset $asset
      *
      * @return void
      */
-    protected function setupAssets(Asset $asset)
+    protected function setupPackage(Asset $asset)
     {
-        $asset->registerStyles(['graham-campbell/logviewer/src/assets/css/logviewer.css'], '', 'logviewer');
-        $asset->registerScripts(['graham-campbell/logviewer/src/assets/js/logviewer.js'], '', 'logviewer');
+        $source = realpath(__DIR__.'/../config/logviewer.php');
+
+        $this->publishes([$source => config_path('logviewer.php')]);
+
+        $this->mergeConfigFrom($source, 'logviewer');
+
+        $this->loadViewsFrom(realpath(__DIR__.'/../views'), 'logviewer');
+
+        $asset->registerStyles(['graham-campbell/logviewer/assets/css/logviewer.css'], '', 'logviewer');
+        $asset->registerScripts(['graham-campbell/logviewer/assets/js/logviewer.js'], '', 'logviewer');
     }
 
     /**
@@ -160,8 +159,8 @@ class LogViewerServiceProvider extends ServiceProvider
     protected function registerLogViewerController()
     {
         $this->app->bind('GrahamCampbell\LogViewer\Http\Controllers\LogViewerController', function ($app) {
-            $perPage = $app['config']['graham-campbell/logviewer::per_page'];
-            $middleware = $app['config']['graham-campbell/logviewer::middleware'];
+            $perPage = $app['config']['logviewer.per_page'];
+            $middleware = $app['config']['logviewer.middleware'];
 
             return new Http\Controllers\LogViewerController($perPage, $middleware);
         });

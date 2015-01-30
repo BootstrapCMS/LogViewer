@@ -13,29 +13,17 @@
         {
             "type": "vcs",
             "url": "https://github.com/BootstrapCMS/asset"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/framework"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/html"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/testbench"
         }
     ],
     "require": {
         "php": ">=5.5.0",
-        "illuminate/filesystem": "~5.0",
-        "illuminate/pagination": "~5.0",
-        "illuminate/routing": "~5.0",
-        "illuminate/session": "~5.0",
-        "illuminate/support": "~5.0",
-        "illuminate/view": "~5.0",
-        "lightgear/asset": "1.5.*",
+        "illuminate/filesystem": "5.0.*",
+        "illuminate/pagination": "5.0.*",
+        "illuminate/routing": "5.0.*",
+        "illuminate/session": "5.0.*",
+        "illuminate/support": "5.0.*",
+        "illuminate/view": "5.0.*",
+        "lightgear/asset": "1.6.*",
         "graham-campbell/core": "~2.0"
     },
     "require-dev": {

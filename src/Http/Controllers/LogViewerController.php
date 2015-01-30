@@ -122,7 +122,7 @@ class LogViewerController extends Controller
             'current'    => $level,
         ];
 
-        return View::make('graham-campbell/logviewer::show', $data);
+        return View::make('logviewer::show', $data);
     }
 
     /**
@@ -152,6 +152,6 @@ class LogViewerController extends Controller
             $log = $data;
         }
 
-        return View::make('graham-campbell/logviewer::data', compact('paginator', 'log'));
+        return View::make('logviewer::data', compact('paginator', 'log'));
     }
 }
