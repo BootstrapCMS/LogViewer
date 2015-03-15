@@ -7,9 +7,10 @@ CHANGE LOG
 * Upgraded to laravel 5.0
 
 
-## V0.2.2 Alpha (Upcoming)
+## V0.2.2 Alpha (15/03/2015)
 
 * Removed the cs fixers
+* Moved to the MIT license
 
 
 ## V0.2.1 Alpha (24/10/2014)
