@@ -42,6 +42,9 @@
             "GrahamCampbell\\Tests\\LogViewer\\": "tests/"
         }
     },
+    "config": {
+        "preferred-install": "dist"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "0.3-dev"
