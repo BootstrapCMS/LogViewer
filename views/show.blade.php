@@ -84,12 +84,12 @@ LogViewer
 @stop
 
 @section('css')
-{!! Asset::styles('logviewer') !!}
+    {!! HTML::style(asset('styles/logviewer.css') !!}
 @endsection
 
 @section('js')
 <script>
 var laravelLogViewerURL = '{{ $data_url }}';
 </script>
-{!! Asset::scripts('logviewer') !!}
+{!! HTML::script(asset('scripts/logviewer.js') !!}
 @endsection

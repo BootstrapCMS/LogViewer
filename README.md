@@ -28,7 +28,6 @@ You'll then need to run `composer install` or `composer update` to download it a
 
 You will need to register a few service providers before you attempt to load the Laravel LogViewer service provider. Open up `config/app.php` and add the following to the `providers` key.
 
-* `'Lightgear\Asset\AssetServiceProvider'`
 * `'GrahamCampbell\Core\CoreServiceProvider'`
 
 Once Laravel LogViewer is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
