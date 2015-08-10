@@ -75,7 +75,7 @@ LogViewer
                 <p>Are you sure you wish to continue?</p>
             </div>
             <div class="modal-footer">
-                {!! HTML::link($url.'/'.$date.'/delete', 'Yes', array('class' => 'btn btn-success')) !!}
+                <a class="btn btn-success" href="{{ $url.'/'.$date.'/delete' }}">Yes</a>
                 <button class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>
