@@ -1,4 +1,4 @@
-@extends(Config::get('core.default'))
+@extends(Config::get('logviewer.layout'))
 
 @section('title')
 <?php $__navtype = 'admin'; ?>
