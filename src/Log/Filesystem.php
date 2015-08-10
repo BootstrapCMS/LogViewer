@@ -11,7 +11,7 @@
 
 namespace GrahamCampbell\LogViewer\Log;
 
-use Illuminate\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Filesystem\Filesystem as Files;
 
 /**
