@@ -16,12 +16,12 @@ Laravel LogViewer was created by, and is maintained by [Graham Campbell](https:/
 
 ## Installation
 
-[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.3+, and [Composer](https://getcomposer.org) are required.
+[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+, and [Composer](https://getcomposer.org) are required.
 
 To get the latest version of Laravel LogViewer, simply add the following line to the require block of your `composer.json` file:
 
 ```
-"graham-campbell/logviewer": "0.3.*"
+"graham-campbell/logviewer": "~1.0"
 ```
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
@@ -33,10 +33,6 @@ You will need to register a few service providers before you attempt to load the
 Once Laravel LogViewer is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `'GrahamCampbell\LogViewer\LogViewerServiceProvider'`
-
-#### Looking for a laravel 4 compatable version?
-
-Checkout the [0.2 branch](https://github.com/BootstrapCMS/LogViewer/tree/0.2), installable by requiring `"graham-campbell/logviewer": "0.2.*"`.
 
 
 ## Configuration
