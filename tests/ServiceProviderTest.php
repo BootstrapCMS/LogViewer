@@ -11,10 +11,10 @@
 
 namespace GrahamCampbell\Tests\LogViewer;
 
-use GrahamCampbell\LogViewer\LogViewer;
 use GrahamCampbell\LogViewer\Log\Data;
 use GrahamCampbell\LogViewer\Log\Factory;
 use GrahamCampbell\LogViewer\Log\Filesystem;
+use GrahamCampbell\LogViewer\LogViewer;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
