@@ -44,8 +44,8 @@ class LogViewerServiceProvider extends ServiceProvider
 
         $this->publishes([$source => config_path('logviewer.php')], 'config');
         $this->publishes([
-            realpath( __DIR__ . '/../assets/css') => public_path('assets/styles'),
-            realpath( __DIR__ . '/../assets/js') => public_path('assets/scripts')
+            realpath(__DIR__.'/../assets/css') => public_path('assets/styles'),
+            realpath(__DIR__.'/../assets/js')  => public_path('assets/scripts'),
         ], 'public');
 
         $this->mergeConfigFrom($source, 'logviewer');
