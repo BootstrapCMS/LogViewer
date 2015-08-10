@@ -51,7 +51,6 @@ class LogViewerServiceProvider extends ServiceProvider
         $this->mergeConfigFrom($source, 'logviewer');
 
         $this->loadViewsFrom(realpath(__DIR__.'/../views'), 'logviewer');
-
     }
 
     /**
