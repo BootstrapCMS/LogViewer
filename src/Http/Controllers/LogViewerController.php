@@ -12,7 +12,6 @@
 namespace GrahamCampbell\LogViewer\Http\Controllers;
 
 use Carbon\Carbon;
-use GrahamCampbell\Core\Http\Middleware\Ajax;
 use GrahamCampbell\LogViewer\Facades\LogViewer;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Routing\Controller;
@@ -47,8 +46,6 @@ class LogViewerController extends Controller
     public function __construct($perPage, array $middleware)
     {
         $this->perPage = $perPage;
-
-        $this->middleware(Ajax::class, ['only' => ['getData']]);
 
         foreach ($middleware as $class) {
             $this->middleware($class);
