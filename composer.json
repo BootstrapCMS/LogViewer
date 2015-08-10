@@ -19,7 +19,8 @@
         "illuminate/view": "5.1.*"
     },
     "require-dev": {
-        "graham-campbell/testbench": "~2.0"
+        "graham-campbell/testbench": "~3.0",
+        "phpunit/phpunit": "^4.7.6"
     },
     "suggest": {
         "graham-campbell/navigation": "Easily add a navigation bar."

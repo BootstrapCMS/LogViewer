@@ -11,7 +11,9 @@
 
 namespace GrahamCampbell\Tests\LogViewer\Facades;
 
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\LogViewer\Facades\LogViewer as LogViewerFacade;
+use GrahamCampbell\LogViewer\LogViewer;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\LogViewer\AbstractTestCase;
 
 /**
@@ -21,7 +23,7 @@ use GrahamCampbell\Tests\LogViewer\AbstractTestCase;
  */
 class LogViewerTest extends AbstractTestCase
 {
-    use FacadeTestCaseTrait;
+    use FacadeTrait;
 
     /**
      * Get the facade accessor.
@@ -40,7 +42,7 @@ class LogViewerTest extends AbstractTestCase
      */
     protected function getFacadeClass()
     {
-        return 'GrahamCampbell\LogViewer\Facades\LogViewer';
+        return LogViewerFacade::class;
     }
 
     /**
@@ -50,6 +52,6 @@ class LogViewerTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'GrahamCampbell\LogViewer\LogViewer';
+        return LogViewer::class;
     }
 }

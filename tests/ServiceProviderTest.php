@@ -11,7 +11,11 @@
 
 namespace GrahamCampbell\Tests\LogViewer;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use GrahamCampbell\LogViewer\LogViewer;
+use GrahamCampbell\LogViewer\Log\Data;
+use GrahamCampbell\LogViewer\Log\Factory;
+use GrahamCampbell\LogViewer\Log\Filesystem;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
  * This is the service provider test class.
@@ -20,25 +24,25 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  */
 class ServiceProviderTest extends AbstractTestCase
 {
-    use ServiceProviderTestCaseTrait;
+    use ServiceProviderTrait;
 
     public function testLogDataIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Data');
+        $this->assertIsInjectable(Data::class);
     }
 
     public function testLogFilesystemIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Filesystem');
+        $this->assertIsInjectable(Filesystem::class);
     }
 
     public function testLogFactoryIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\Log\Factory');
+        $this->assertIsInjectable(Factory::class);
     }
 
     public function testLogViewerIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\LogViewer\LogViewer');
+        $this->assertIsInjectable(LogViewer::class);
     }
 }

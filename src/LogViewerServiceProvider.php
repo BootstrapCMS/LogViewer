@@ -11,6 +11,10 @@
 
 namespace GrahamCampbell\LogViewer;
 
+use GrahamCampbell\LogViewer\Http\Controllers\LogViewerController;
+use GrahamCampbell\LogViewer\Log\Data;
+use GrahamCampbell\LogViewer\Log\Factory;
+use GrahamCampbell\LogViewer\Log\Filesystem;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -91,10 +95,10 @@ class LogViewerServiceProvider extends ServiceProvider
     protected function registerLogData()
     {
         $this->app->singleton('logviewer.data', function () {
-            return new Log\Data();
+            return new Data();
         });
 
-        $this->app->alias('logviewer.data', 'GrahamCampbell\LogViewer\Log\Data');
+        $this->app->alias('logviewer.data', Data::class);
     }
 
     /**
@@ -108,10 +112,10 @@ class LogViewerServiceProvider extends ServiceProvider
             $files = $app['files'];
             $path = $app['path.storage'].'/logs';
 
-            return new Log\Filesystem($files, $path);
+            return new Filesystem($files, $path);
         });
 
-        $this->app->alias('logviewer.filesystem', 'GrahamCampbell\LogViewer\Log\Filesystem');
+        $this->app->alias('logviewer.filesystem', Filesystem::class);
     }
 
     /**
@@ -125,10 +129,10 @@ class LogViewerServiceProvider extends ServiceProvider
             $filesystem = $app['logviewer.filesystem'];
             $levels = $app['logviewer.data']->levels();
 
-            return new Log\Factory($filesystem, $levels);
+            return new Factory($filesystem, $levels);
         });
 
-        $this->app->alias('logviewer.factory', 'GrahamCampbell\LogViewer\Log\Factory');
+        $this->app->alias('logviewer.factory', Factory::class);
     }
 
     /**
@@ -146,7 +150,7 @@ class LogViewerServiceProvider extends ServiceProvider
             return new LogViewer($factory, $filesystem, $data);
         });
 
-        $this->app->alias('logviewer', 'GrahamCampbell\LogViewer\LogViewer');
+        $this->app->alias('logviewer', LogViewer::class);
     }
 
     /**
@@ -156,11 +160,11 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     protected function registerLogViewerController()
     {
-        $this->app->bind('GrahamCampbell\LogViewer\Http\Controllers\LogViewerController', function ($app) {
+        $this->app->bind(LogViewerController::class, function ($app) {
             $perPage = $app['config']['logviewer.per_page'];
             $middleware = $app['config']['logviewer.middleware'];
 
-            return new Http\Controllers\LogViewerController($perPage, $middleware);
+            return new LogViewerController($perPage, $middleware);
         });
     }
 
