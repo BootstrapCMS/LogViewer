@@ -75,7 +75,7 @@ LogViewer
                 <p>Are you sure you wish to continue?</p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-success" href="{{ $url.'/'.$date.'/delete' }}">Yes</a>
+                <a class="btn btn-success" href="{{ Request::root() }}/{{ $url.'/'.$date.'/delete' }}">Yes</a>
                 <button class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>
