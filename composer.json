@@ -16,7 +16,7 @@
         "illuminate/routing": "^5.1",
         "illuminate/session": "^5.1",
         "illuminate/support": "^5.1",
-        "illuminate/view": "5.1.*"
+        "illuminate/view": "^5.1"
     },
     "require-dev": {
         "graham-campbell/testbench": "~3.0",
